@@ -1,0 +1,110 @@
+:root {
+    --primaryColor : rgb(31, 116, 226) ;
+    --secondColor : rgb(228, 148, 148) ;
+    --lightmode : #FBF3D5 ;
+    --darkmode  : rgb(87, 59, 59) ;
+    --bgColor : rgb(26, 21, 21) ;
+    --bgColor1 : rgb(88, 81, 48) ;
+    --bgColor2 : rgb(116, 102, 102) ;
+    --Gradiant :background: rgb(48,47,48);
+    background: linear-gradient(90deg, rgba(48,47,48,1) 0%, rgba(60,69,45,1) 50%, rgba(35,34,36,1) 100%) ;
+}
+@font-face {
+    font-family: Calina;
+    src: url(/Fonts/Calina.otf);
+}
+@font-face {
+    font-family: Grashrock;
+    src: url(/Fonts/Grashrock.otf);
+}
+@font-face {
+    font-family: Vostela;
+    src: url(/Fonts/VOSTELA.otf);
+}
+@font-face {
+    font-family: waltograph;
+    src: url(/Fonts/waltograph42.ttf);
+}
+
+/* -----------------------------------------------------------------------
+------------------------ GENERAL SETTING ---------------------------------
+------------------------------------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica , sans-serif , 'Calina' ;
+    font-size: 16px ;
+    color: rgb(255, 255, 255) ;
+}
+
+h1 {
+    font-family: 'Calina' , 'Times New Roman', Times, serif;
+    font-size: 25px ;
+    cursor: grab  ;
+}
+
+/* -----------------------------------------------------------------------
+------------------------ HOME SETTING ---------------------------------
+------------------------------------------------------------------------*/
+
+.home {
+    width: 100% ;
+    height: 100vh ;
+    background-color: var(--Gradiant) ;
+    display: flex;
+    flex-direction: column ;
+}
+
+span {
+    font-family: Calina , sans-serif;
+    color: var(--lightmode);
+}
+nav {
+    padding : 2rem 5% 5% 5% ;
+    display: flex ;
+    justify-content: space-between;
+    align-items: center ;
+}
+
+nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    margin : 0.8rem ; 
+    
+}
+
+nav ul li a {
+    color: var(--lightmode);
+    text-decoration: none;
+    text-transform: capitalize;
+    border: solid 1px var(--lightmode);
+    border-radius: 15px ;
+    padding : 5px 10px ;
+
+}
+
+nav ul li a:hover {
+    background-color: var(--lightmode);
+    color: var(--darkmode);
+    transition: 0.5s ;
+}
+
+.subBtn { 
+    color: var(--bgColor);
+    font-weight: 600 ;
+    background-color: var(--lightmode);
+    padding: 5px 7px ;
+    border: solid 2px transparent;
+    border-radius: 30px ;
+    text-decoration: none ;
+    color: ;
+}
+
+.subBtn:hover {
+    color: var(--lightmode);
+    background-color: transparent;
+    border: solid 2px var(--lightmode);
+    transition: .3s;
+}
