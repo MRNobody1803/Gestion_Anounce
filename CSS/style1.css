@@ -29,6 +29,10 @@
     font-family: Opeen sans;
     src: url(/Fonts/OpenSans-Regular.ttf);
 }
+@font-face {
+    font-family: Casselen;
+    src: url(/Fonts/Casselin\ DEMO\ VERSION.ttf);
+}
 
 
 /* -----------------------------------------------------------------------
@@ -79,10 +83,14 @@ p {
 .home {
     width: 100% ;
     height: 60vh ;
-    background : url("/Image/Design\ sans\ titre.png") ;
+    background : url("/Image/pexels-balamurugan-anbazhagan-763097.jpg") ;
     background-size: cover  ;
     display: flex;
     flex-direction: column ;
+}
+.navigation {
+    background-image: linear-gradient(to bottom , rgba(255, 255, 255, 0.788) , transparent );
+
 }
 
 span {

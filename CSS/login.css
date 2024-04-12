@@ -29,7 +29,10 @@
     font-family: Opeen sans;
     src: url(/Fonts/OpenSans-Regular.ttf);
 }
-
+@font-face {
+    font-family: Casselen;
+    src: url(/Fonts/Casselin\ DEMO\ VERSION.ttf);
+}
 
 /* -----------------------------------------------------------------------
 ------------------------ GENERAL SETTING ---------------------------------
@@ -44,7 +47,8 @@
     color: black ;
 }
 body {
-    background : linear-gradient(to bottom , var(--primaryColor) , black ) ;
+    background-image: url(/Image/pexels-felix-kiss-18684136.jpg) ;
+    background-size: cover;
 }
 
 h1 {
@@ -83,6 +87,7 @@ p {
 .home {
     width: 100% ;
     height: 100vh ;
+    background-image: linear-gradient(to bottom right , rgba(255, 255, 255, 0.274) , transparent );
     background-size: cover  ;
     display: flex;
     flex-direction: column ;
@@ -131,7 +136,10 @@ nav {
     transition: 1s;
     border-radius: 30px ;
 }
-
+/*.navigation {
+    height: 300px ;
+   
+}*/
 .navig {
     width: 100% ;
     height: 100vh;
@@ -167,4 +175,95 @@ nav {
 .navbarr ul li a:hover {
     background-color: rgba(235, 229, 229, 0.274) ;
     transition: 0.5s ;
+}
+.card {
+    background: rgba(255, 255, 255, 0.05) ;
+    backdrop-filter: blur(2px);
+    padding: 20px;
+    border-radius: 10px;
+    width: 35%;
+    height: 400px;
+    margin: 0 auto;
+    margin-top: 50px;
+    border: solid 0.1px white;
+    box-shadow: 0 0px 80px rgba(255, 255, 255, 0.1);
+}
+.card:hover {
+    scale: 1.1 ;
+    box-shadow: 0 0 20px black ;
+    border: none ;
+    backdrop-filter: none ;
+    transition: 1s ;
+}
+.card h2 {
+    font-weight: bolder ;
+    font-size: 1.7rem ;
+    font-family: Arial, Helvetica, sans-serif ;
+
+}
+
+.login-form {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--lightmode);
+}
+
+input[type="email"],
+input[type="password"] {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center ;
+    width: 70%;
+    padding: 10px;
+    border-radius: 25px;
+    border: 0px solid #ccc ;
+    opacity: 0.5;
+    background-color: #fff;
+    font-weight: 500;
+
+}
+input[type="email"]:hover ,
+input[type="password"]:hover {
+    border-color: var(--bgColor);
+    width: 80% ;
+    
+
+}
+
+.submit-btn {
+    background-color: var(--primaryColor);
+    color: var(--lightmode);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.submit-btn:hover {
+    background-color: white ;
+    color: black;
+}
+
+.card h3 {
+    font-family: Calibri , sans-serif;
+    font-weight: 300;
+    color: white ;
+}
+.card h3 a {
+    text-decoration: none ;
+    color: rgb(64, 146, 240) ;
+}
+.card h3 a:hover {
+    scale: 1.1 ;
+    transform: scaleY(2px);
 }
