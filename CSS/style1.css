@@ -142,7 +142,7 @@ nav {
 
 .navig {
     width: 100% ;
-    height: 100vh;
+    height: 150vh;
     background-color: white ;
     display: block ;
     text-align: center ;
@@ -157,7 +157,8 @@ nav {
 
 }
 .navbarr {
-    padding: 1% ;
+    padding: 2% ;
+    margin-bottom: 50px ;
 }
 
 .navig ul li a {
@@ -188,8 +189,9 @@ nav {
 
 .card .card1,.card2,.card3 {
     width: 25% ;
-    border-radius: 52px;
-    background: #e0e0e0;
+    border-radius: 10px ;
+    background: transparent ;
+    
     box-shadow:  16px 16px 25px #929292,
                 -16px -16px 25px #ffffff;
     padding: 12px ;
@@ -241,21 +243,52 @@ button {
     font-weight: 400 ;
     padding: 40px 10px ;
 }
+.actualite h1{
+    font-family: 'Opeen sans' , Arial, Helvetica, sans-serif ;
+    margin: 5px ;
+    padding: 2% ;
+}
 
  /* -----------------------------------------------------------------------
 ------------------------ IMG GALLERIE POURQUOI   ----------------------------
 ------------------------------------------------------------------------*/
+.contain {
+    background-color: rgba(128, 128, 128, 0.082) ;
+    border-radius:  0 10 0 20 ;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.205) ;
+    display: flex ;
+    justify-content: space-between ;
 
+}
+.slider {
+    width: 50% ;
+    
+}
 img {
     max-width: 200%;
 }
 .slider-container {
-    background-color: rgba(196, 196, 196, 0.288);
-    width: 800px;
+    border-radius: 0px 0px 20px 20px ;
+    background-color: rgba(128, 128, 128, 0.082) ;
+    width: auto ;
     position: relative;
-    margin: auto;
-    height: 350px;
+    margin: 20px;
+    height: 500px ;
     overflow: hidden;
+}
+.comments {
+    width: 50% ;
+    height: 500px ;
+    background-color: rgba(128, 128, 128, 0.082) ;
+    border-radius: 0px 0px 20px 20px ;
+    margin: 20px;
+}
+.comments h2 {
+    font-family: serif ;
+    padding: 2% ;
+    font-size: 1.5rem ;
+    font-weight: 600 ;
+    /*text-shadow: 0 0 0px black ;*/
 }
 .menu {
     position: absolute;
@@ -272,7 +305,7 @@ img {
     height: 10px;
     background: #ccc;
     border-radius: 50px;
-    margin: 0 0.2em 1em;
+    margin: 0 0.2em 0.5em;
 }
 .menu label:hover,.menu label:focus {
     background: #1c87c9;
@@ -281,8 +314,9 @@ img {
     opacity: 0;
 }
 .slide-img {
-    width: 100%;
-    height: 300px;
+
+    width: 100% ;
+    height: 92%;
     position: absolute;
     top: 0;
     left: 100%;
