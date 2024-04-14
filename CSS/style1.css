@@ -244,9 +244,13 @@ button {
     padding: 40px 10px ;
 }
 .actualite h1{
-    font-family: 'Opeen sans' , Arial, Helvetica, sans-serif ;
+    font-family: serif , Arial, Helvetica, sans-serif ;
+    font-size: 2.5rem;
     margin: 5px ;
     padding: 2% ;
+    /*background-color : linear-gradient( to top , transparent ,  rgba(128, 128, 128, 0.082) );*/
+    border-radius: 0px ;
+    
 }
 
  /* -----------------------------------------------------------------------
@@ -268,7 +272,7 @@ img {
     max-width: 200%;
 }
 .slider-container {
-    border-radius: 0px 0px 20px 20px ;
+    border-radius: 20px ;
     background-color: rgba(128, 128, 128, 0.082) ;
     width: auto ;
     position: relative;
@@ -280,13 +284,13 @@ img {
     width: 50% ;
     height: 500px ;
     background-color: rgba(128, 128, 128, 0.082) ;
-    border-radius: 0px 0px 20px 20px ;
+    border-radius: 5px  30px ;
     margin: 20px;
 }
 .comments h2 {
     font-family: serif ;
     padding: 2% ;
-    font-size: 1.5rem ;
+    font-size: 1.7rem ;
     font-weight: 600 ;
     /*text-shadow: 0 0 0px black ;*/
 }
@@ -314,7 +318,7 @@ img {
     opacity: 0;
 }
 .slide-img {
-
+border-radius: 20px 20px 0 0 ;
     width: 100% ;
     height: 92%;
     position: absolute;
