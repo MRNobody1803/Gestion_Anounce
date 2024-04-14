@@ -6,32 +6,30 @@
     --bgColor : rgb(26, 21, 21) ;
     --bgColor1 :  rgba(197, 197, 197, 0.274) ;
     --bgColor2 : rgb(163, 159, 159) ;
-    --Gradiant :background: rgb(48,47,48);
-    background: linear-gradient(90deg, rgba(48,47,48,1) 0%, rgba(60,69,45,1) 50%, rgba(35,34,36,1) 100%) ;
 }
 @font-face {
     font-family: Calina;
-    src: url(/Fonts/Calina.otf);
+    src: url(../Fonts/Calina.otf);
 }
 @font-face {
     font-family: Grashrock;
-    src: url(/Fonts/Grashrock.otf);
+    src: url(../Fonts/Grashrock.otf);
 }
 @font-face {
     font-family: Vostela;
-    src: url(/Fonts/VOSTELA.otf);
+    src: url(../Fonts/VOSTELA.otf);
 }
 @font-face {
     font-family: waltograph;
-    src: url(/Fonts/waltograph42.ttf);
+    src: url(../Fonts/waltograph42.ttf);
 }
 @font-face {
     font-family: Opeen sans;
-    src: url(/Fonts/OpenSans-Regular.ttf);
+    src: url(../Fonts/OpenSans-Regular.ttf);
 }
 @font-face {
     font-family: Casselen;
-    src: url(/Fonts/Casselin\ DEMO\ VERSION.ttf);
+    src: url(../Fonts/Casselin\ DEMO\ VERSION.ttf);
 }
 
 
@@ -83,7 +81,7 @@ p {
 .home {
     width: 100% ;
     height: 60vh ;
-    background : url("/Image/pexels-balamurugan-anbazhagan-763097.jpg") ;
+    background : url("../Image/pexels-balamurugan-anbazhagan-763097.jpg") ;
     background-size: cover  ;
     display: flex;
     flex-direction: column ;
@@ -244,7 +242,7 @@ button {
     padding: 40px 10px ;
 }
 .actualite h1{
-    font-family: serif , Arial, Helvetica, sans-serif ;
+    font-family: serif , Arial, Helvetica, sans-serif  ;
     font-size: 2.5rem;
     margin: 5px ;
     padding: 2% ;

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +13,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Black+Ops+One&family=Creepster&family=La+Belle+Aurore&family=MedievalSharp&family=Orbitron&family=Rye&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/CSS/style1.css">
+    <link rel="stylesheet" href="../CSS/style1.css">
 </head>
 <body>
+    <?php ?>
     <section class="home">
         <div class="navigation">
             <nav>
@@ -40,7 +42,7 @@
         </div>
         <div class="card">
             <div class="card1">
-                <img src="/Image/student_9810509.png" alt="">
+                <img src="../Image/student_9810509.png" alt="">
                 <h2>Etudiant</h2>
                 <a href="#Stud" id="stud">
                     <button>
@@ -49,16 +51,16 @@
                 </a>     
             </div>
             <div class="card2">
-                <img src="/Image/user-with-tie-glasses_74266.png" alt="">
-                <h2>Professeur</h2>
+                <img src="../Image/user-with-tie-glasses_74266.png" alt="">
+                <h2>Professeur/Chef de filière</h2>
                 <a href="#Prof" id="Prof">
                     <button>
-                        <span class="button_top">Se Connecter</span>
+                        <span class="button_top" >Se Connecter</span>
                     </button>
                 </a> 
             </div>
             <div class="card3">
-                <img src="/Image/personal-configuration_30422.png" alt="">
+                <img src="../Image/personal-configuration_30422.png" alt="">
                 <h2>Administration</h2>
                 <a href="#Adm" id="Adm">
                     <button>
@@ -71,7 +73,7 @@
             <h1> Actualités </h1>
             <div class="contain">
                 <div class="comments">
-                    <h2>Commentaire sur L'actualites</h2>
+                    <h2>Commentaire sur L actualites</h2>
 
                 </div>
                 <div class="slider">
@@ -83,13 +85,13 @@
                         </div>
             
                         <input class="slide-input" id="slide-dot-1" type="radio" name="slides" checked>
-                        <img class="slide-img" src="/Image/pexels-felix-kiss-18684136.jpg">
+                        <img class="slide-img" src="../Image/pexels-felix-kiss-18684136.jpg">
             
                         <input class="slide-input" id="slide-dot-2" type="radio" name="slides">
-                        <img class="slide-img" src="/Image/pexels-balamurugan-anbazhagan-763097.jpg">
+                        <img class="slide-img" src="../Image/pexels-balamurugan-anbazhagan-763097.jpg">
             
                         <input class="slide-input" id="slide-dot-3" type="radio" name="slides">
-                        <img class="slide-img" src="/Image/result-3236285_1920.jpg">
+                        <img class="slide-img" src="../Image/result-3236285_1920.jpg">
             
                     </div>
                 </div>
@@ -97,7 +99,11 @@
             </div>
             
         </div>
-        
+        <!--div class="contact">
+            <h2>Contact</h2>
+        </div-->
+
+
     </section>
 </body>
 </html>

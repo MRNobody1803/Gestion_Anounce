@@ -1,0 +1,328 @@
+:root {
+    --primaryColor : rgb(0, 158, 197) ;
+    --secondColor : rgb(228, 148, 148) ;
+    --lightmode : #FBF3D5 ;
+    --darkmode  : rgb(87, 59, 59) ;
+    --bgColor : rgb(26, 21, 21) ;
+    --bgColor1 :  rgba(197, 197, 197, 0.274) ;
+    --bgColor2 : rgb(163, 159, 159) ;
+    --Gradiant :background: rgb(48,47,48);
+    
+  }
+  @font-face {
+    font-family: Calina;
+    src: url(../Fonts/Calina.otf);
+  }
+  @font-face {
+    font-family: Grashrock;
+    src: url(../Fonts/Grashrock.otf);
+  }
+  @font-face {
+    font-family: Vostela;
+    src: url(../Fonts/VOSTELA.otf);
+  }
+  @font-face {
+    font-family: waltograph;
+    src: url(../Fonts/waltograph42.ttf);
+  }
+  @font-face {
+    font-family: Opeen sans;
+    src: url(../Fonts/OpenSans-Regular.ttf);
+  }
+  @font-face {
+    font-family: Casselen;
+    src: url(../Fonts/Casselin\ DEMO\ VERSION.ttf);
+  }
+  
+  /* -----------------------------------------------------------------------
+  ------------------------ GENERAL SETTING ---------------------------------
+  ------------------------------------------------------------------------*/
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica , sans-serif , 'Calina' ;
+    font-size: 16px ;
+    color: black ;
+  }
+  body {
+    background: url(../Image/pexels-balamurugan-anbazhagan-763097.jpg);
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  
+  h1 {
+        font-family: 'Calina' , 'Times New Roman', Times, serif;
+        font-size: 25px ;
+        cursor: grab  ;
+  }
+  h2{
+        color: black ;
+        font-family: 'Opeen sans' , 'Times New Roman', Times, serif;
+        font-size: large ;
+        margin-bottom: 20px;
+    
+  }
+  h3 {
+        font-family: 'Opeen sans' , Arial, Helvetica, sans-serif;
+        font-size: large ;
+        color: black;
+        padding: 10px;
+  }
+  i {
+    color: black ;
+    margin: 0px 10px ;
+    font-size: large;
+  }
+  
+  /* -----------------------------------------------------------------------
+  ------------------------ HOME CARD SETTING -------------------------
+  ------------------------------------------------------------------------*/
+    
+  .home {
+      width: 100% ;
+      height: 100vh ;
+      background-image: linear-gradient(to bottom  , rgba(255, 255, 255, 0.274) , transparent );
+      background-size: cover  ;
+      display: flex;
+      flex-direction: column ;
+  }
+  
+  
+  
+   header span {
+      font-family: Calina , sans-serif;
+      color: var(--lightmode);
+  }
+  nav {
+      padding : 1rem  2rem ;
+      display: flex ;
+      justify-content: space-between;
+      align-items: center ;
+  }
+      
+      
+  .subBtn { 
+      color: var(--lightmode);
+      font-weight: 600 ;
+      font-size: 1.2rem;
+      /*background-color: var(--lightmode);*/
+      padding: 5px 7px ;
+      border: solid 2px transparent;
+      border-radius: 30px ;
+      text-decoration: none ;
+  }
+      
+  .subBtn:hover {
+      background-color: rgba(211, 211, 211, 0.233);
+      transition: 1s;
+      border-radius: 30px ;
+  }
+      
+  .explore {
+      color: var(--lightmode);
+      font-weight: 600 ;
+      font-size: 1.2rem;
+      padding: 5px 7px ;
+      text-decoration: none ;
+      border-radius: 30px ;
+  }
+      
+  .explore:hover{
+      background-color: rgba(211, 211, 211, 0.233);
+      transition: 1s;
+      border-radius: 30px ;
+  }
+      /*.navigation {
+          height: 300px ;
+         
+      }*/
+  .navig {
+      width: 100% ;
+      height: 100vh;
+      background-color: white ;
+      display: block ;
+      text-align: center ;
+      justify-content: center ;
+      padding: 0% ; 
+  }
+  .navbarr ul li {
+          
+      list-style-type: none;
+      display: inline-block;
+      margin : 1.5rem  1rem; 
+      
+  }
+  .navbarr {
+      padding: 1% ;
+  }
+      
+  .navbarr ul li a {
+       color: var(--lightmode);
+      font-weight: 400;
+      text-decoration: none;
+      text-transform: capitalize;
+      border-radius: 15px ;
+      padding : 5px 10px ;
+      font-family: 'Opeen sans' , sans-serif ;
+      font-size: 1.1rem ;
+      font-weight: 400;
+  }
+      
+  .navbarr ul li a:hover {
+      background-color: rgba(235, 229, 229, 0.274) ;
+      transition: 0.5s ;
+  }
+  
+  main {
+    margin-top : 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  
+    *, *:after, *:before {
+      box-sizing: inherit ;
+    }
+    
+    #signup:checked ~ .container .form {
+      transform: translate3d(30%, -3em, 0);
+    }
+    
+    #login:checked ~ .container .form {
+      transform: translate3d(120%, -3em, 0);
+    }
+    #login:checked ~ .container .form .inputs {
+      transform: translate3d(0, -95%, 0);
+    }
+    #login:checked ~ .container .form button .content {
+      transform: translatey(-25px);
+    }
+    
+    .hide {
+      position: absolute;
+      visibility: hidden;
+    }
+    
+    .attribution {
+      margin-bottom: em;
+      color: rgb(255, 255, 255);
+    }
+    
+    .container {
+      border: 2px solid rgb(0, 0, 0);
+      box-shadow: 0 0 30px white ;
+      width: 90vmin;
+      height: 530px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      position: relative;
+    }
+    .container .form {
+      position: absolute;
+      background: transparent ;
+      backdrop-filter: blur(15px);
+      border: solid 0.1px white ;
+      border-radius: 20px ;
+      padding: 1em 2em;
+      width: 40%;
+      height: 500px;
+      transition: all 0.5s linear;
+      transform: translate3d(30%, -3em, 0);
+      box-shadow: 0 0 55px rgba(41, 41, 41, 0.5);
+    }
+    .container .form form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      text-align: center ;
+    }
+    .container .form form .inputs {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      flex: 1;
+      transition: all 320ms ease-out;
+    }
+    .container .form form input {
+      border: none;
+      text-align: center;
+      border-radius: 20px ;
+      border-bottom: 1px solid #eee;
+      color: #111;
+      padding: 1em;
+      margin-bottom: 2em;
+      opacity: 0.7 ;
+    }
+    .container .form form input:nth-of-type(4) {
+      margin-bottom: 2em;
+    }
+    .container .form form button {
+      color: white;
+      background: #ffffff25;
+      border: 1px solid #eee;
+      border-radius: 20px;
+      width: 100%;
+      padding: 1rem ;
+      transition: all 300ms ease-out;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .container .form form button:hover {
+      background: #ffffff;
+      color: #111;
+    }
+    .container .form form button > span {
+      opacity: 0 ;
+    }
+    .container .form form button .content {
+      position: absolute;
+      transform: translateY(25px);
+      transition: all 300ms ease-out;
+    }
+    .container .form form button .content span {
+      display: block;
+    }
+    .container .form form button .content span:first-child {
+      margin-bottom: 2em;
+    }
+    
+    .signup, .login {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 5em 2em;
+    }
+    .signup label.button, .login label.button {
+      border: 1px solid rgb(240, 240, 240);
+      border-radius: 30px;
+      padding: .8em 2em;
+      color: #ffffff;
+      cursor: pointer;
+      font-weight: 700 ;
+      font-size: large;
+      background-color: #1111117e;
+      transition: all 600ms ease;
+    }
+    .signup label.button:hover, .login label.button:hover {
+      background: #ffffff3a;
+      color: white;
+      border: 1px solid #ffffff;
+    }
+    .signup:hover, .login:hover {
+      background: #ffffff11;
+      transition: all .5s ease-out ;
+    }

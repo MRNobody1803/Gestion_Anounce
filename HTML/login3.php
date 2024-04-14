@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Black+Ops+One&family=Creepster&family=La+Belle+Aurore&family=MedievalSharp&family=Orbitron&family=Rye&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="/CSS/test.css">
+<link rel="stylesheet" href="../CSS/login3.css">
 <body>
 	<div class="home">
 		<header class="navigation">
@@ -40,28 +40,29 @@
 	        <div class="container">
 		        <div class="signup">
 			        <label for="signup" class="button">
-				        Administration
+				        S'inscrire
 			        </label>
 		        </div>
 		        <div class="login">
 			        <label for="login" class="button">
-				        Professeur
+				        Se Connecter
 			        </label>
 		        </div>
 		        <div class="form">
 			        <form>
 				        <div class="inputs names">
-					        <label><input type="text" placeholder="First Name"></label>
-					        <input type="text" placeholder="Last Name">	
+					        <label><input type="text" placeholder="Prénom"></label>
+					        <input type="text" placeholder="Nom">	
 				        </div>			
 				        <div class="inputs credentials">
-					        <input type="email" placeholder="Email (Educatif / Administrative)">
-					        <input type="password" placeholder="Password">
+					        <input type="email" placeholder="Email Educatif">
+					        <input type="password" placeholder="Mot de Passe">
+                            <input type="password" placeholder="Confirmer le Mot de Passe">                         
 				        </div>
 				        <button>
 					        <span>Se Connecter</span>
 					        <div class="content">
-						        <span>Se Connecter</span>
+						        <span>S'inscrire</span>
 						        <span>Se Connecter</span>
 					        </div>				
 				        </button>

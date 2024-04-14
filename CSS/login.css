@@ -11,27 +11,27 @@
 }
 @font-face {
     font-family: Calina;
-    src: url(/Fonts/Calina.otf);
+    src: url(../Fonts/Calina.otf);
 }
 @font-face {
     font-family: Grashrock;
-    src: url(/Fonts/Grashrock.otf);
+    src: url(../Fonts/Grashrock.otf);
 }
 @font-face {
     font-family: Vostela;
-    src: url(/Fonts/VOSTELA.otf);
+    src: url(../Fonts/VOSTELA.otf);
 }
 @font-face {
     font-family: waltograph;
-    src: url(/Fonts/waltograph42.ttf);
+    src: url(../Fonts/waltograph42.ttf);
 }
 @font-face {
     font-family: Opeen sans;
-    src: url(/Fonts/OpenSans-Regular.ttf);
+    src: url(../Fonts/OpenSans-Regular.ttf);
 }
 @font-face {
     font-family: Casselen;
-    src: url(/Fonts/Casselin\ DEMO\ VERSION.ttf);
+    src: url(../Fonts/Casselin\ DEMO\ VERSION.ttf);
 }
 
 /* -----------------------------------------------------------------------
@@ -47,12 +47,12 @@
     color: black ;
 }
 body {
-    background-image: url(/Image/pexels-felix-kiss-18684136.jpg) ;
+    background-image: url(../Image/pexels-eberhard-grossgasteiger-1367105.jpg) ;
     background-size: cover;
 }
 
 h1 {
-    font-family: 'Calina' , 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 25px ;
     cursor: grab  ;
 }
@@ -60,7 +60,7 @@ h2{
     color: black ;
     font-family: 'Opeen sans' , 'Times New Roman', Times, serif;
     font-size: large ;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 
 }
 h3 {
@@ -78,6 +78,8 @@ i {
 p {
     color: #e0e0e0 ;
 }
+
+
 
 
 /* -----------------------------------------------------------------------
@@ -163,7 +165,7 @@ nav {
 .navbarr ul li a {
     color: var(--lightmode);
     font-weight: 400;
-    text-decoration: none;
+    text-decoration: none ;
     text-transform: capitalize;
     border-radius: 15px ;
     padding : 5px 10px ;
@@ -181,15 +183,15 @@ nav {
     backdrop-filter: blur(2px);
     padding: 20px;
     border-radius: 10px;
-    width: 35%;
-    height: 400px;
+    width: 38%;
+    height: 430px;
     margin: 0 auto;
     margin-top: 50px;
     border: solid 0.1px white;
     box-shadow: 0 0px 80px rgba(255, 255, 255, 0.1);
 }
 .card:hover {
-    scale: 1.1 ;
+    scale: 1.02 ;
     box-shadow: 0 0 20px black ;
     border: none ;
     backdrop-filter: none ;
@@ -261,9 +263,21 @@ input[type="password"]:hover {
 }
 .card h3 a {
     text-decoration: none ;
-    color: rgb(64, 146, 240) ;
+    color: rgb(45, 196, 223) ;
 }
 .card h3 a:hover {
     scale: 1.1 ;
-    transform: scaleY(2px);
+    transform: scaleY(2px) ;
+}
+
+/* -----------------------------------------------------------------------
+------------------------ NAVIGATION HOME SETTING -------------------------
+------------------------------------------------------------------------*/
+
+.error {
+    color : rgb(255, 255, 255) ;
+    font-family : arial , Calibri  ;
+    font-size : 15px ;
+    font-weight: 600 ;
+    padding: 3% ;
 }
