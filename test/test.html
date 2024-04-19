@@ -1,4 +1,5 @@
-<?php
+
+<!--?php
 
 $serveur = "127.0.0.1:3307"; // Nom du serveur MySQL
 $utilisateur = "root"; // Nom d'utilisateur MySQL
@@ -75,7 +76,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 	}
 
 
-	?>
+	?-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +92,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Black+Ops+One&family=Creepster&family=La+Belle+Aurore&family=MedievalSharp&family=Orbitron&family=Rye&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../CSS/login2.css">
+<link rel="stylesheet" href="test.css">
 <body>
 	
 	<div class="home">
@@ -128,7 +129,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 			        </label>
 		        </div>
 		        <div class="form">
-			        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+			        <form method="post" action="">
 				        <div class="inputs names">
 						    <span class="error"><?php echo $nameErr;?></span>
 					        <label><input type="text" name="name" placeholder="Prénom"></label><br>

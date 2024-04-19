@@ -15,6 +15,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../CSS/login3.css">
 <body>
+<?php
+	$name = $lastname = $email = $password = "";
+	$nameErr = $lastnameErr = $emailErr = $passwordErr = "";
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		if (empty($_POST["name"])) {
+		  $nameErr = "* Name is required";
+		} else {
+		  $name = test_input($_POST["name"]);
+		  if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+			$nameErr = "* Only letters and white space allowed";
+		  }
+		}
+		if (empty($_POST["lastname"])) {
+			$lastnameErr = "* Last Name is required";
+		  } else {
+			$lastname = test_input($_POST["lastname"]);
+			if (!preg_match("/^[a-zA-Z-' ]*$/",$name)) {
+			  $lastnameErr = "* Only letters and white space allowed";
+			}
+		  }
+		if (empty($_POST["email"])) {
+		  $emailErr = "* Email is required";
+		} else {
+		  $email = test_input($_POST["email"]);
+		  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+			$emailErr = "* Invalid email format";
+		  }
+		}
+		if(empty($_POST["password"])) {
+			$passwordErr = "* Password is required !";
+		  }else if(strlen($_POST["password"]) <= 6) {
+			$passwordErr = "* Must contain more 6 caracters !";
+		  }
+		
+		  else {
+			$password = test_input($_POST["password"]);
+		}
+
+		}
+		function test_input($data) {
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
+	    }
+?>
 	<div class="home">
 		<header class="navigation">
 			<nav>
@@ -49,15 +95,19 @@
 			        </label>
 		        </div>
 		        <div class="form">
-			        <form>
+			        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				        <div class="inputs names">
-					        <label><input type="text" placeholder="Prénom"></label>
-					        <input type="text" placeholder="Nom">	
+						    <span class="error"><?php echo $nameErr;?></span>
+					        <input type="text" name="name" placeholder="Prénom">
+							<span class="error"><?php echo $lastnameErr;?></span>
+					        <input type="text" name ="lastname" placeholder="Nom">
 				        </div>			
-				        <div class="inputs credentials">
-					        <input type="email" placeholder="Email Educatif">
-					        <input type="password" placeholder="Mot de Passe">
-                            <input type="password" placeholder="Confirmer le Mot de Passe">                         
+				        <div class="inputs credentials">	
+						    <span class="error"><?php echo $emailErr;?></span>
+					        <input type="email" name="email" placeholder="Email Educatif">
+							<span class="error"><?php echo $passwordErr;?></span>
+					        <input type="password" name="password" placeholder="Mot de Passe">
+                            <input type="password" name="password" placeholder="Confirmer le Mot de Passe">                         
 				        </div>
 				        <button>
 					        <span>Se Connecter</span>

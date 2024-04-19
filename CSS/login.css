@@ -184,7 +184,8 @@ nav {
     padding: 20px;
     border-radius: 10px;
     width: 38%;
-    height: 430px;
+    height: auto;
+    max-height: 460px ;
     margin: 0 auto;
     margin-top: 50px;
     border: solid 0.1px white;
@@ -234,7 +235,7 @@ input[type="password"] {
 input[type="email"]:hover ,
 input[type="password"]:hover {
     border-color: var(--bgColor);
-    width: 80% ;
+    
     
 
 }
@@ -280,4 +281,7 @@ input[type="password"]:hover {
     font-size : 15px ;
     font-weight: 600 ;
     padding: 3% ;
+}
+p span {
+    padding: 2px ;
 }
