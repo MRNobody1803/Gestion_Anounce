@@ -121,6 +121,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 				echo "Erreur lors de la connexion à la base de données : " . $e->getMessage();
 			}
 		}
+
 		
 		
 			else if(empty($emailErr) && empty($passwordErr) && !empty($nameErr) && !empty($lastnameErr) ){

@@ -1,0 +1,78 @@
+/* Style du conteneur */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+/* Style du titre */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style du bouton */
+.button {
+    display: block;
+    width: 150px;
+    margin: 0 auto 20px;
+    padding: 10px;
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Style du tableau */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Style de l'en-tête du tableau */
+thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+/* Style des cellules de l'en-tête */
+th {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style des lignes impaires */
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Style des cellules de données */
+td {
+    padding: 10px;
+}
+
+/* Style des liens dans les cellules */
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+/* Style des boutons dans les cellules */
+td button {
+    padding: 6px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: #0056b3;
+}
