@@ -6,7 +6,7 @@ $passwd = ""; // Mot de passe MySQL
 $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 
 
-	$name = $lastname = $email = $password = "";
+	$name = $lastname = $email = $password = $loginErr = "";
 	$nameErr = $lastnameErr = $emailErr = $passwordErr = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		if (empty($_POST["name"])) {
@@ -44,8 +44,38 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 			$data = stripslashes($data);
 			$data = htmlspecialchars($data);
 			return $data;
-
-			if(empty($emailErr) && empty($passwordErr)) {
+		}
+		if(empty($emailErr) && empty($passwordErr) && empty($nameErr) && empty($lastnameErr)) {
+			try {
+				// Connexion à la base de données avec PDO
+				$connexion = new PDO("mysql:host=$serveur;dbname=$DataBase", $utilisateur, $passwd);
+		
+				// Configuration des options de PDO pour afficher les erreurs
+				$connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
+				// Requête pour vérifier l'existence de l'utilisateur dans la base de données
+				$stmt = $connexion->prepare("SELECT utilisateur.ID_utilisateur FROM utilisateur,chef_filière WHERE utilisateur.ID_utilisateur = chef_filière.ID_utilisateur AND Email=:email AND Mot_de_passe=:password AND Nom=:nom AND Prénom=:prenom" );
+				$stmt->bindParam(':email', $email);
+				$stmt->bindParam(':password', $password);
+				$stmt->bindParam(':nom', $name); // Correction ici
+				$stmt->bindParam(':prenom', $lastname); // Correction ici
+				$stmt->execute();
+		
+				// Vérifier si l'utilisateur existe
+				if ($stmt->rowCount() == 1) {
+					// Rediriger l'utilisateur vers la page d'accueil après la connexion réussie
+					header("Location: Chef.php");
+					exit();
+				} else {
+					$loginErr = "Email or password incorrect";
+				}
+			} catch (PDOException $e) {
+				// Affichage d'un message d'erreur en cas d'échec de la connexion
+				$loginErr = "Error connecting to the database: " . $e->getMessage();
+			}
+		}
+		
+			else if(empty($emailErr) && empty($passwordErr) && !empty($nameErr) && !empty($lastnameErr) ){
 				try {
 					// Connexion à la base de données avec PDO
 					$connexion = new PDO("mysql:host=$serveur;dbname=$DataBase", $utilisateur, $passwd);
@@ -54,7 +84,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 					$connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 					// Requête pour vérifier l'existence de l'utilisateur dans la base de données
-					$stmt = $connexion->prepare("SELECT ID_utilisateur FROM utilisateur WHERE Email=:email AND Mot_de_passe=:password");
+					$stmt = $connexion->prepare("SELECT utilisateur.ID_utilisateur FROM utilisateur,enseignant WHERE utilisateur.ID_utilisateur = enseignant.ID_utilisateur AND Email=:email AND Mot_de_passe=:password" );
 					$stmt->bindParam(':email', $email);
 					$stmt->bindParam(':password', $password);
 					$stmt->execute();
@@ -62,7 +92,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 					// Vérifier si l'utilisateur existe
 					if ($stmt->rowCount() == 1) {
 						// Rediriger l'utilisateur vers la page d'accueil après la connexion réussie
-						header("Location: accueil.php");
+						header("Location: Prof.php");
 						exit();
 					} else {
 						$loginErr = "Email or password incorrect";
@@ -72,7 +102,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 					$loginErr = "Error connecting to the database: " . $e->getMessage();
 				}
 			}
-	}
+	
 
 
 	?>
@@ -141,13 +171,14 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 					        <input type="email" placeholder="Email (Educatif / Administrative)" name="email"><br>
 							<span class="error"><?php echo $passwordErr;?></span>
 					        <input type="password" placeholder="Mot de Passe" name="password">
+							<span class="error"><?php echo $loginErr;?></span>
 							
 				        </div>
 				        <div class = "superBtn" >
 					        <span>Se Connecter</span>
 					        <div class="content">
-						        <span><button><a href="Chef.php">Se Connecter</a></button></span> <!-- CHEF -->
-								<span><button><a href="Prof.php">Se Connecter</a></button></span><!-- Prof -->
+						        <span><button type="submit" name="submit_chef" class="submit-chef"><h3>Se Connecter</h3></button></span> <!-- CHEF -->
+								<span><button type="submit" name="submit_prof" class="submit-prof"><h3>Se Connecter</h3></button></span><!-- Prof -->
 					        </div>				
 				        </div>
 			        </form>

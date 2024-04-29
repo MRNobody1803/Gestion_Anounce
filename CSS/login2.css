@@ -206,7 +206,7 @@ main {
   transform: translate3d(0, -95%, 0);
 }
 #login:checked ~ .container .form .superBtn .content {
-  transform: translatey(-28px);
+  transform: translatey(-38px);
 }
 
 .hide {
@@ -294,24 +294,27 @@ main {
   opacity: 0 ;
 }
 .container .form form .superBtn .content {
-    width: 90% ;
-    position: absolute;
-    transform: translateY(35px);
-    transition: all 300ms ease-out;
+  width: 90% ;
+  position: absolute;
+  transform: translateY(35px);
+  transition: all 300ms ease-out;
 }
 
 .container .form form .superBtn .content span {
-    height: 100% ;
-    display: block;
+  height: 100% ;
+  display: block;
 }
 .container .form form .superBtn .content span button {
-
-    padding: 6px;
-    background-color: transparent  ;
-    border: none ;
-    bottom: 2px ;
-    font-weight: 600;
-    font-size: 0px ;
+  padding: 0px;
+  background-color: transparent  ;
+  border: none ;
+  bottom: -5px ;
+  font-weight: 600;
+  font-size: 0px ;
+  
+}
+.container .form form .superBtn .content span button h3 {
+  color: #111;
 }
 .container .form form .superBtn .content span:first-child {
   margin-bottom: 2em;

@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Login Page with animation </title>
-</head>
-<link rel="icon" href="/Icons/login_icon_184224.ico">
+	<link rel="icon" href="/Icons/login_icon_184224.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +13,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Black+Ops+One&family=Creepster&family=La+Belle+Aurore&family=MedievalSharp&family=Orbitron&family=Rye&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../CSS/login3.css">
+<script>
+    function validateForm() {
+        var name = document.forms["signupForm"]["name"].value;
+        var lastname = document.forms["signupForm"]["lastname"].value;
+        var email = document.forms["signupForm"]["email"].value;
+        var password = document.forms["signupForm"]["password"].value;
+
+        if (name == "" || lastname == "" || email == "" || password == "") {
+            alert("Tous les champs doivent être remplis !");
+            return false;
+        }
+    }
+</script>
+
+</head>
+
+
 <body>
 <?php
+$serveur = "127.0.0.1:3307"; // Nom du serveur MySQL
+$utilisateur = "root"; // Nom d'utilisateur MySQL
+$passwd = ""; // Mot de passe MySQL
+$DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
+
+
 	$name = $lastname = $email = $password = "";
 	$nameErr = $lastnameErr = $emailErr = $passwordErr = "";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -60,6 +82,78 @@
 			$data = htmlspecialchars($data);
 			return $data;
 	    }
+		if(empty($emailErr) && empty($passwordErr) && empty($nameErr) && empty($lastnameErr)) {
+			try {
+				if (!empty($email) && !empty($password) && !empty($name) && !empty($lastname)) {
+					// Connexion à la base de données avec PDO
+					$connexion = new PDO("mysql:host=$serveur;dbname=$DataBase", $utilisateur, $passwd);
+		
+					// Configuration des options de PDO pour afficher les erreurs
+					$connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+					$connexion->beginTransaction();
+		
+					// Requête pour insérer l'utilisateur
+					$stmt = $connexion->prepare("INSERT INTO utilisateur (Nom, Prénom, Email, Mot_de_passe, type_utilisateur) VALUES (:nom, :prenom, :email, :password, :type_user)");
+					$type_user = "Etudiant";
+					$stmt->bindParam(':nom', $name);
+					$stmt->bindParam(':prenom', $lastname);
+					$stmt->bindParam(':email', $email);
+					$stmt->bindParam(':password', $password);
+					$stmt->bindParam(':type_user', $type_user);
+					$stmt->execute();
+		
+					// Récupérer l'ID de l'utilisateur nouvellement inséré
+					$userId = $connexion->lastInsertId();
+		
+					// Requête pour insérer l'étudiant
+					$stmt = $connexion->prepare("INSERT INTO etudiant (ID_utilisateur) VALUES (:userId)");
+					$stmt->bindParam(':userId', $userId);
+					$stmt->execute();
+		
+					$connexion->commit();
+					echo "<script>alert('Inscription réussie !');</script>";
+				} else {
+					echo "<script>alert('Il faut remplir tous les champs !');</script>";
+				}
+			} catch (PDOException $e) {
+				// En cas d'erreur, annuler la transaction
+				$connexion->rollBack();
+				echo "Erreur lors de la connexion à la base de données : " . $e->getMessage();
+			}
+		}
+		
+		
+			else if(empty($emailErr) && empty($passwordErr) && !empty($nameErr) && !empty($lastnameErr) ){
+				try {
+					if (!empty($email) && !empty($password) ){
+					// Connexion à la base de données avec PDO
+					$connexion = new PDO("mysql:host=$serveur;dbname=$DataBase", $utilisateur, $passwd);
+		
+					// Configuration des options de PDO pour afficher les erreurs
+					$connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		
+					// Requête pour vérifier l'existence de l'utilisateur dans la base de données
+					$stmt = $connexion->prepare("SELECT utilisateur.ID_utilisateur FROM utilisateur,etudiant WHERE utilisateur.ID_utilisateur = etudiant.ID_utilisateur AND Email=:email AND Mot_de_passe=:password" );
+					$stmt->bindParam(':email', $email);
+					$stmt->bindParam(':password', $password);
+					$stmt->execute();
+		
+					// Vérifier si l'utilisateur existe
+					if ($stmt->rowCount() == 1) {
+						// Rediriger l'utilisateur vers la page d'accueil après la connexion réussie
+						header("Location: Etudiant.php");
+						exit();
+					} else {
+						$loginErr = "Email or password incorrect";
+					}
+				}
+				} catch (PDOException $e) {
+					// Affichage d'un message d'erreur en cas d'échec de la connexion
+					$loginErr = "Error connecting to the database: " . $e->getMessage();
+				}
+			}
+	
+
 ?>
 	<div class="home">
 		<header class="navigation">
@@ -95,7 +189,7 @@
 			        </label>
 		        </div>
 		        <div class="form">
-			        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="signupForm" onsubmit="return validateForm()">
 				        <div class="inputs names">
 						    <span class="error"><?php echo $nameErr;?></span>
 					        <input type="text" name="name" placeholder="Prénom">
@@ -107,15 +201,15 @@
 					        <input type="email" name="email" placeholder="Email Educatif">
 							<span class="error"><?php echo $passwordErr;?></span>
 					        <input type="password" name="password" placeholder="Mot de Passe">
-                            <input type="password" name="password" placeholder="Confirmer le Mot de Passe">                         
+                            <!--input type="password" name="password" placeholder="Confirmer le Mot de Passe"-->                         
 				        </div>
-				        <button>
+				        <div class = "superBtn" >
 					        <span>Se Connecter</span>
 					        <div class="content">
-						        <span>S'inscrire</span>
-						        <span>Se Connecter</span>
+						        <span><button type="submit" name="submit_btn"><h3>S'inscrire</h3></button></span> <!-- INSCRI -->
+								<span><button type="submit" name="submit_btn"><h3>Se Connecter</h3></button></span><!-- CONNECTER -->
 					        </div>				
-				        </button>
+				        </div>
 			        </form>
 		        </div>
 	        </div>

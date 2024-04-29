@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             // Requête pour vérifier l'existence de l'utilisateur dans la base de données
-            $stmt = $connexion->prepare("SELECT ID_utilisateur FROM utilisateur WHERE Email=:email AND Mot_de_passe=:password");
+            $stmt = $connexion->prepare("SELECT utilisateur.ID_utilisateur FROM utilisateur , administrateur WHERE utilisateur.ID_utilisateur = administrateur.ID_utilisateur AND Email=:email AND Mot_de_passe=:password");
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':password', $password);
             $stmt->execute();
@@ -73,7 +73,7 @@ function test_input($data) {
             <h1>Academia <span>CONNECT</span></h1>
             <div class="navbarr">
                 <ul>
-                    <li><a href="#home"><i class="fa-solid fa-house"></i>Home</a></li>
+                    <li><a href="Espace.php"><i class="fa-solid fa-house"></i>Home</a></li>
                     <li><a href="#home"><i class="fa-solid fa-newspaper"></i></i>actualite</a></li>
                     <li><a href="#home"><i class="fa-solid fa-bullhorn"></i>Anouncement</a></li>
                     <li><a href="#home"><i class="fa-solid fa-address-book"></i>Contact</a></li>
