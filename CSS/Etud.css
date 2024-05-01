@@ -1,0 +1,83 @@
+/* -------------------------------Partie Annonce ----------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica , sans-serif , 'Calina' ;
+    font-size: 16px ;
+    color: black ;
+}
+
+.container {
+    font-family: serif;
+    display: block;
+    width: 100%;
+    margin: 0px;
+    padding: 20px;
+}
+
+.container h1 {
+    font-size: 2rem ;
+    font-family: serif;
+    text-align: center;
+}
+
+.annonces {
+    width: 100%;
+    padding: 0 100px ;
+    min-width: 700px ;
+    margin-top: 20px;
+}
+
+.anounce {
+    width: 100%;
+    border-radius: 5px;
+    padding:  20px 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.589);
+    margin-bottom: 20px ;
+}
+
+.anounce h2 {
+    color: #da0000;
+    font-family: serif;
+    margin-top: 0;
+    font-size: small;
+}
+
+.anounce p {
+    font-family: serif;
+    color: black;
+    margin-bottom: 5px ;
+}
+
+.contenu {
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.493);
+    margin: 5px 0 10px 0;
+}
+
+.contenu p {
+    font-family: serif;
+    font-weight: 500 ;
+    text-align: center;
+    color: rgba(180, 0, 0, 0.836);
+}
+
+.desc {
+    margin: 20px 0;
+    color: black;
+}
+.desc h4 {
+    text-align: center ;
+    color: #da0000 ;
+}
+
+/* Ajout de couleurs de fond pour chaque annonce */
+.anounce:nth-child(odd) {
+    background-color: #b3b3b363; /* Couleur de fond pour les annonces impaires */
+}
+
+.anounce:nth-child(even) {
+    background-color: #dddddd6b; /* Couleur de fond pour les annonces paires */
+}

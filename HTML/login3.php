@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Black+Ops+One&family=Creepster&family=La+Belle+Aurore&family=MedievalSharp&family=Orbitron&family=Rye&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="../CSS/login3.css">
-<script>
+<!--script>
     function validateForm() {
         var name = document.forms["signupForm"]["name"].value;
         var lastname = document.forms["signupForm"]["lastname"].value;
@@ -25,7 +25,7 @@
             return false;
         }
     }
-</script>
+</script-->
 
 </head>
 
