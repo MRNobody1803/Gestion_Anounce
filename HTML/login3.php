@@ -162,17 +162,13 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 				<h1>Academia <span>CONNECT</span></h1>
 				<div class="navbarr">
 					<ul>
-						<li><a href="#home"><i class="fa-solid fa-house"></i>Home</a></li>
-						<li><a href="#home"><i class="fa-solid fa-newspaper"></i></i>actualite</a></li>
-						<li><a href="#home"><i class="fa-solid fa-bullhorn"></i>Anouncement</a></li>
+						<li><a href="Espace.php"><i class="fa-solid fa-house"></i>Home</a></li>
+						<li><a href="Espace.php"><i class="fa-solid fa-newspaper"></i></i>actualite</a></li>
+						<li><a href="login.php"><i class="fa-solid fa-bullhorn"></i>Annonces</a></li>
 						<li><a href="#home"><i class="fa-solid fa-address-book"></i>Contact</a></li>
-						<li><a href="#home"><i class="fa-sharp fa-solid fa-eject"></i>About</a></li>
+
 					</ul>
-				</div>
-				<div>
-					<a href="#" class="explore"><i class="fa-solid fa-caret-up"></i>Explorer</a>
-					<a href="#" class="subBtn"><i class="fa-solid fa-right-to-bracket"></i>Se Connecter</a>
-				</div>         
+				</div>    
 			</nav>
 		</header>
 		<main>
@@ -190,7 +186,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 			        </label>
 		        </div>
 		        <div class="form">
-				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" name="signupForm" onsubmit="return validateForm()">
+				<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 				        <div class="inputs names">
 						    <span class="error"><?php echo $nameErr;?></span>
 					        <input type="text" name="name" placeholder="Prénom">

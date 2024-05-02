@@ -8,6 +8,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 
 	$name = $lastname = $email = $password = $loginErr = "";
 	$nameErr = $lastnameErr = $emailErr = $passwordErr = "";
+	session_start();
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		if (empty($_POST["name"])) {
 		  $nameErr = "* Name is required";
@@ -60,7 +61,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 				$stmt->bindParam(':nom', $name); // Correction ici
 				$stmt->bindParam(':prenom', $lastname); // Correction ici
 				$stmt->execute();
-		
+				/*$_SESSION['Nom'] = $row[""];*/
 				// Vérifier si l'utilisateur existe
 				if ($stmt->rowCount() == 1) {
 					// Rediriger l'utilisateur vers la page d'accueil après la connexion réussie
@@ -88,10 +89,13 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 					$stmt->bindParam(':email', $email);
 					$stmt->bindParam(':password', $password);
 					$stmt->execute();
-		
 					// Vérifier si l'utilisateur existe
 					if ($stmt->rowCount() == 1) {
 						// Rediriger l'utilisateur vers la page d'accueil après la connexion réussie
+						$id_utilisateur = $stmt->fetchColumn();
+    
+   						 // Enregistrer l'ID utilisateur dans une variable de session
+    					$_SESSION['ID_utilisateur'] = $id_utilisateur;
 						header("Location: Prof.php");
 						exit();
 					} else {
@@ -130,17 +134,11 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 				<h1>Academia <span>CONNECT</span></h1>
 				<div class="navbarr">
 					<ul>
-						<li><a href="#home"><i class="fa-solid fa-house"></i>Home</a></li>
+						<li><a href="Espace.php"><i class="fa-solid fa-house"></i>Home</a></li>
 						<li><a href="#home"><i class="fa-solid fa-newspaper"></i></i>actualite</a></li>
-						<li><a href="#home"><i class="fa-solid fa-bullhorn"></i>Anouncement</a></li>
 						<li><a href="#home"><i class="fa-solid fa-address-book"></i>Contact</a></li>
-						<li><a href="#home"><i class="fa-sharp fa-solid fa-eject"></i>About</a></li>
 					</ul>
-				</div>
-				<div>
-					<a href="#" class="explore"><i class="fa-solid fa-caret-up"></i>Explorer</a>
-					<a href="#" class="subBtn"><i class="fa-solid fa-right-to-bracket"></i>Se Connecter</a>
-				</div>         
+				</div>    
 			</nav>
 		</header>
 		<main>

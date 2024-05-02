@@ -236,6 +236,7 @@ input[type="password"] {
 input[type="email"]:hover ,
 input[type="password"]:hover {
     border-color: var(--bgColor);
+    opacity: 0.9 ;
     
     
 

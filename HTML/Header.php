@@ -16,7 +16,7 @@
         :root {
     --primaryColor : rgb(31, 116, 226) ;
     --secondColor : rgb(228, 148, 148) ;
-    --lightmode : #FBF3D5 ;
+    --lightmode : white ;
     --darkmode  : rgb(87, 59, 59) ;
     --bgColor : rgb(26, 21, 21) ;
     --bgColor1 :  rgba(197, 197, 197, 0.274) ;
@@ -82,7 +82,7 @@ nav h3 {
 }
 nav i {
     color: black ;
-    margin: 0px 10px ;
+    margin: 5px 13px ;
     font-size: large;
 }
 nav p {
@@ -124,7 +124,7 @@ nav div {
 
 .subBtn { 
     color: var(--lightmode);
-    font-weight: 600 ;
+    font-weight: 500 ;
     font-size: 1.2rem;
     /*background-color: var(--lightmode);*/
     padding: 5px 7px ;
@@ -135,7 +135,7 @@ nav div {
 
 .subBtn:hover {
     background-color: rgba(211, 211, 211, 0.233);
-    transition: 1s;
+    transition: 0.7s;
     border-radius: 30px ;
 }
 
@@ -163,11 +163,12 @@ nav div {
                 <h1>Academia <span>CONNECT</span></h1>
                 <div>
                     <a href="#home" class="subBtn"><i class="fa-solid fa-bullhorn"></i>Anouncement</a>
-                    <a href="#home" class="subBtn"><i class="fa-solid fa-house"></i>Home</a>
-                    <a href="#" class="explore"><i class="fa-solid fa-caret-up"></i>Explorer</a>
-                    <a href="#" class="subBtn"><i class="fa-solid fa-right-to-bracket"></i>Se deconnecter</a>
+                    <a href="Espace.php" class="subBtn"><i class="fa-solid fa-house"></i>Home</a>
+                    <a href="ProfilEtud.php" class="subBtn"><i class="fa-solid fa-user"></i>Profil</a>
+                    <a href="Espace.php" class="subBtn"><i class="fa-solid fa-right-to-bracket"></i>Se deconnecter</a>
                 </div>         
             </nav>
+            
         </div>
         <div class="bgimg">
         </div>

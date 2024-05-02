@@ -7,69 +7,106 @@
     <link rel="stylesheet" href="../CSS/prof.css">
 </head>
 <body>
-<?php 
+<?php
 include 'connectionDb.php';
-$titreErr = $descrErr = $contenuErr = $fileErr = "" ;
-$titre = $descr = $contenu = $file = $chemin = $type = $filier = "" ;
-$type = $_POST["announcementType"];
-$filier = $_POST["filiere"];
+$titreErr = $descrErr = $contenuErr = $fileErr = "";
+$titre = $descr = $contenu = $file = $chemin = $type = $filier = "";
+session_start();
 
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['ID_utilisateur'])) {
+    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+    header("Location: login2.php");
+    exit();
+}
+else {
+    $UsernmaeProf = $nameProf = $lastnameProf ="";
+    $sql = "SELECT Nom, Prénom FROM utilisateur WHERE ID_utilisateur = :iduser ;";
+    $stmt = $connexion->prepare($sql);
+    $stmt->bindParam(":iduser", $_SESSION['ID_utilisateur']);
+    $stmt->execute();
+    if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $nameProf = $row["Nom"];
+        $lastnameProf = $row["Prénom"];
+        $UsernmaeProf = $nameProf." ".$lastnameProf ;
+    }
+}
+// Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
+
+    // Check if announcement type is set
+    if (isset($_POST["announcementType"])) {
+        $type = test_input($_POST["announcementType"]);
+    }
+
+    // Check if filiere is set
+    if (isset($_POST["filiere"])) {
+        $filier = test_input($_POST["filiere"]);
+    }
+
+    // Validate announcement title
     if (empty($_POST["announcementTitle"])) {
-        $titre = test_input($_POST["announcementTitle"]);
         $titreErr = "* Titre est Obligatoire";
-        
-    } 
-    else if (empty($_POST["announcementDescription"])) {
-        $descr = test_input($_POST["announcementDescription"]);  
-        $descrErr = "* Description est Obligatoire ";  
+    } else {
+        $titre = test_input($_POST["announcementTitle"]);
     }
-    
-    else  if (empty($_POST["announcementContenu"])) {
-        $contenu = test_input($_POST["announcementContenu"]);    
-        $contenuErr = "* Le contenu est Obligatoire  "; 
+
+    // Validate announcement description
+    if (empty($_POST["announcementDescription"])) {
+        $descrErr = "* Description est Obligatoire ";
+    } else {
+        $descr = test_input($_POST["announcementDescription"]);
     }
-    if (empty($_POST["announcementFile"])){
-        if (move_uploaded_file($_FILES["announcementFile"]["tmp_name"],"C:/uploads/".$_FILES["announcementFile"]["name"])) {
+
+    // Validate announcement content
+    if (empty($_POST["announcementContenu"])) {
+        $contenuErr = "* Le contenu est Obligatoire  ";
+    } else {
+        $contenu = test_input($_POST["announcementContenu"]);
+    }
+
+    // Check if file is uploaded
+    if (!empty($_FILES["announcementFile"]["name"])) {
+        if (move_uploaded_file($_FILES["announcementFile"]["tmp_name"], "C:/uploads/" . $_FILES["announcementFile"]["name"])) {
+            $chemin = "C:/uploads/" . $_FILES["announcementFile"]["name"];
             try {
-            $chemin = "C:/uploads/".$_FILES["announcementFile"]["name"];
-            // Connexion à la base de données
-            // Requête d'insertion pour enregistrer le chemin d'accès dans la base de données
-            $sql = "INSERT INTO annonce (Type_annonce,Titre_annonce,Description, Contenu, Chemin) VALUES (:type,:titre, :desc,:contenu, :chemin);";
-            $stmt = $connexion->prepare($sql);
-            $stmt->bindParam(":titre", $titre);
-            $stmt->bindParam(":type", $type);
-            $stmt->bindParam(":desc", $descr);
-            //$stmt->bindParam(":filier", $filier);
-            $stmt->bindParam(":contenu", $contenu);
-            $stmt->bindParam(":chemin", $chemin);
-            $stmt->execute();
-    
-            echo "Le fichier PDF a été téléchargé avec succès et l'annonce a été enregistrée.";
-             } catch (PDOException $e) {
-                // Affichage d'un message d'erreur en cas d'échec de la connexion
-                 echo "Error lors de l'insertion !!". $e->getMessage();
-            }  
-        }else {
-            echo "Une erreur s'est produite lors du téléchargement du fichier PDF.";
-        }
-        
+                $date_pub = date('Y-m-d H:i:s');
+                // Insert announcement into database
+                $sql = "INSERT INTO annonce (ID_utilisateur, Type_annonce,Titre_annonce,Description, Contenu, Chemin, Date_publication) VALUES (:iduser,:type,:titre, :desc,:contenu, :chemin,:date);";
+                $stmt = $connexion->prepare($sql);
+                $stmt->bindParam(":iduser",$_SESSION['ID_utilisateur']);
+                $stmt->bindParam(":titre", $titre);
+                $stmt->bindParam(":type", $type);
+                $stmt->bindParam(":desc", $descr);
+                $stmt->bindParam(":contenu", $contenu);
+                $stmt->bindParam(":chemin", $chemin);
+                $stmt->bindParam(":date", $date_pub );
+                
+
+                $stmt->execute();
+
+                echo "<script>alert('La disposition de l\'annonce a été effectuée avec succès.');</script>";
+
+            } catch (PDOException $e) {
+                echo "Error lors de l'insertion !!". $e->getMessage();
+            }
+        } else {
+            echo "<script>alert('Une erreur s\'est produite lors de la disposition de l\'annonce. Veuillez réessayer.');</script>";        }
     }
+}
 
-    
-} 
-
-    function test_input($data) {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
-
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
 ?>
 
-<?php include 'Header.php'; ?>
+
+<?php include 'HeaderP.php'; ?>
+
+<h1>Bonjour <span class ="usernamae"> <?php echo "Prof. ".$UsernmaeProf ?> <span></h1>
 <main>
     <h1>Déposer une Annonce</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data">
@@ -124,6 +161,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
     </form>
 </main>
 
-
+<?php include 'Footer.php' ; ?>
 </body>
 </html>

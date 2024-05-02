@@ -99,29 +99,6 @@
             
         </div>
     </section>
-    <section class="footer">
-        <div class="about">
-            <h1>About Us</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis scelerisque justo vitae ligula aliquet, id placerat nisl tempus.</p>
-        </div>
-        <footer>
-            <div class="contact-info">
-                <h2>Contact Us</h2>
-                <p>Email: contact@example.com</p>
-                <p>Phone: +1234567890</p>
-            </div>
-            <div class="social-media">
-                <h2>Social Media</h2>
-                <ul>
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <!-- Ajoutez d'autres liens de réseaux sociaux si nécessaire -->
-                </ul>
-            </div>
-        </footer>
-
-    </section>
-
+   <?php include 'Footer.php' ; ?>
 </body>
 </html>

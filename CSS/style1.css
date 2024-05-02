@@ -1,7 +1,7 @@
 :root {
     --primaryColor : rgb(31, 116, 226) ;
     --secondColor : rgb(228, 148, 148) ;
-    --lightmode : #FBF3D5 ;
+    --lightmode : #ffffff ;
     --darkmode  : rgb(87, 59, 59) ;
     --bgColor : rgb(26, 21, 21) ;
     --bgColor1 :  rgba(197, 197, 197, 0.274) ;
@@ -67,7 +67,7 @@ h3 {
 }
 i {
     color: black ;
-    margin: 0px 10px ;
+    margin: 0px 13px ;
     font-size: large;
 }
 p {
@@ -108,7 +108,7 @@ nav {
 
 .subBtn { 
     color: var(--lightmode);
-    font-weight: 600 ;
+    font-weight: 500 ;
     font-size: 1.2rem;
     /*background-color: var(--lightmode);*/
     padding: 5px 7px ;
@@ -125,7 +125,7 @@ nav {
 
 .explore {
     color: var(--lightmode);
-    font-weight: 600 ;
+    font-weight: 500 ;
     font-size: 1.2rem;
     padding: 5px 7px ;
     text-decoration: none ;

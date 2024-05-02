@@ -1,4 +1,19 @@
-:root {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Login Page with animation </title>
+	<link rel="icon" href="/Icons/login_icon_184224.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Black+Ops+One&family=Creepster&family=La+Belle+Aurore&family=MedievalSharp&family=Orbitron&family=Rye&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="../CSS/login3.css">
+<style>
+    :root {
     --primaryColor : rgb(0, 158, 197) ;
     --secondColor : rgb(228, 148, 148) ;
     --lightmode : #FBF3D5 ;
@@ -189,177 +204,24 @@
     flex-direction: column;
   }
   
-  
-  *, *:after, *:before {
-    box-sizing: inherit;
-  }
-  
-  #signup:checked ~ .container .form {
-    transform: translate3d(30%, -3em, 0);
-  }
-  
-  #login:checked ~ .container .form {
-    transform: translate3d(120%, -3em, 0);
-  }
-  #login:checked ~ .container .form .inputs {
-    transform: translate3d(0, -95%, 0);
-  }
-  #login:checked ~ .container .form .superBtn .content {
-    transform: translatey(-38px);
-  }
-  
-  .hide {
-    position: absolute;
-    visibility: hidden;
-  }
-  
-  .attribution {
-    margin-bottom: em;
-    color: rgb(255, 255, 255);
-  }
-  
-  .container {
-    border: 2px solid rgb(0, 0, 0);
-    box-shadow: 0 0 30px white ;
-    width: 90vmin;
-    height: 460px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    position: relative;
-  }
-  .container .form {
-    position: absolute;
-    background: transparent ;
-    backdrop-filter: blur(15px);
-    border: solid 0.1px white ;
-    border-radius: 20px ;
-    padding: 2em 2em;
-    width: 40%;
-    height: 450px ;
-    transition: all 0.5s linear;
-    transform: translate3d(30%, -3em, 0);
-    box-shadow: 0 0 55px rgba(41, 41, 41, 0.5);
-  }
-  .container .form form {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-    text-align: center ;
-    margin: 0;
-  }
-  .container .form form .inputs {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    flex: 1;
-    transition: all 320ms ease-out;
-  }
-  .container .form form input {
-    border: none;
-    text-align: center;
-    border-radius: 20px ;
-    border-bottom: 1px solid #eee;
-    color: #111;
-    padding: 1em;
-    /*margin-bottom: 0em;*/
-    opacity: 0.7 ;
-  }
-  .container .form form input:nth-of-type(4) {
-    margin-bottom: 2em;
-  }
-  .container .form form .superBtn {
-    color: white;
-    background: #ffffff25;
-    border: 1px solid #eee;
-    border-radius: 20px;
-    width: 100%;
-    padding: 1rem ;
-    transition: all 300ms ease-out;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    margin-top: 0.7rem ;
-  }
-  .container .form form .superBtn .content span button h3 {
-    color: #111;
-  }
-  .container .form form .superBtn:hover {
-    background: #ffffff;
-    color: #111;
-  }
-  .container .form form .superBtn > span {
-    opacity: 0 ;
-  }
-  .container .form form .superBtn .content {
-    width: 90% ;
-    position: absolute;
-    transform: translateY(35px);
-    transition: all 300ms ease-out;
-  }
-  
-  .container .form form .superBtn .content span {
-    height: 100% ;
-    display: block;
-  }
-  .container .form form .superBtn .content span button {
-    padding: 0px;
-    background-color: transparent  ;
-    border: none ;
-    bottom: -5px ;
-    font-weight: 600;
-    font-size: 0px ;
-    
-  }
-  .container .form form .superBtn .content span:first-child {
-    margin-bottom: 2em;
-  }
-  
-  .signup, .login {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding: 5em 2em;
-  }
-  .signup label.button, .login label.button {
-    position: absolute ;
-    border: 1px solid rgb(240, 240, 240);
-    border-radius: 30px;
-    padding: .8em 2em;
-    color: #ffffff;
-    cursor: pointer;
-    font-weight: 700 ;
-    font-size: large;
-    background-color: #1111117e;
-    transition: all 600ms ease;
-  }
-  .signup label.button:hover, .login label.button:hover {
-    background: #ffffff3a;
-    color: white;
-    border: 1px solid #ffffff;
-  }
-  .signup:hover, .login:hover {
-    background: #ffffff11;
-    transition: all .5s ease-out ;
-  }
-  
-  .superBtn span button {
-  position: relative ;
-  
-  }
-
-/* -----------------------------------------------------------------------
------------------------- NAVIGATION HOME SETTING -------------------------
-------------------------------------------------------------------------*/
-
-.error {
-  color : rgb(255, 255, 255) ;
-  font-family : arial , Calibri  ;
-  font-size : 14px ;
-  font-weight: 400 ;
-  padding: 0 ;
-}
+</style>
+</head>
+<body>
+    <?php ?>
+    <div class="home">
+    <header class="navigation">
+			<nav>
+				<h1>Academia <span>CONNECT</span></h1>
+				<div class="navbarr">
+					<ul>
+						<li><a href="#home"><i class="fa-solid fa-house"></i>Home</a></li>
+						<li><a href="#home"><i class="fa-solid fa-newspaper"></i></i>actualite</a></li>
+						<li><a href="#home"><i class="fa-solid fa-bullhorn"></i>Anouncement</a></li>
+						<li><a href="#home"><i class="fa-solid fa-address-book"></i>Contact</a></li>
+					</ul>
+				</div>   
+			</nav>
+		</header>
+    </div>
+</body>
+</html>

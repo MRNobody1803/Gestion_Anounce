@@ -25,12 +25,13 @@
 .annonces {
     width: 100%;
     padding: 0 100px ;
-    min-width: 700px ;
+    min-width: 600px ;
     margin-top: 20px;
 }
 
 .anounce {
     width: 100%;
+    max-width: 700px;
     border-radius: 5px;
     padding:  20px 40px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.589);
@@ -58,6 +59,7 @@
 }
 
 .contenu p {
+    font-size: 20px ;
     font-family: serif;
     font-weight: 500 ;
     text-align: center;

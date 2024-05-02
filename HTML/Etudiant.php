@@ -49,6 +49,10 @@
                 echo '</div>';
                 echo '<div class="contenu">';
                 echo "<p> $contenu </p>";
+                if (!empty($row["Chemin"])) {
+                    $cheminFichier = $row["Chemin"];
+                    echo "<p><a href='$cheminFichier' download>Télécharger le fichier associé</a></p>";
+                }
                 echo '</div>';
                 echo '</div>';
             }
@@ -62,5 +66,6 @@
         echo "Erreur de connexion à la base de données : " . $e->getMessage();
     }
     ?>
+      <?php include 'Footer.php' ; ?>
 </body>
 </html>
