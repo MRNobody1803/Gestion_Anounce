@@ -75,7 +75,17 @@
     </style>
 </head>
 <body>
-    <?php include 'Header.php'; ?>
+    <?php /*include 'Header.php'; */?>
+    <?php 
+    include 'connectionDb.php' ;
+    if (isset($_SESSION['full_name'])) {
+        } else {
+            header("Location: Etudiant.php");
+            exit();
+        }
+    /*$sql = "SELECT * FROM utilisateur WHERE ";
+        $resultat = $connexion->query($sql);*/
+    ?>
     <section class="cont">
     <div class="container">
         <div class="profile-header">
@@ -86,20 +96,17 @@
         </div>
         <div class="profile-details">
             <h2>Nom Complet :</h2>
-            <p>John Doe</p>
+            <p><?php echo isset($_SESSION['full_name'])  ?></p>
             <h2>Numéro d'Etudiant :</h2>
             <p>123456789</p>
             <h2>Filière :</h2>
-            <p>Génie Informatique </p>
+            <p><?php echo $_SESSION['filiere'] ?></p>
             <h2>Email :</h2>
-            <p>john.doe@example.com</p>
+            <p><?php echo $_SESSION['email'] ?></p>
             <h2>Numéro de Téléphone :</h2>
             <p>+1234567890</p>
             <h2>CNE Etudiant :</h2>
-            <p>+1234567890</p>
-        </div>
-        <div class="button-container">
-            <button class="edit-profile-button">Modifier le Profil</button>
+            <p><?php echo $_SESSION['cne'] ?></p>
         </div>
     </div>
     </section>

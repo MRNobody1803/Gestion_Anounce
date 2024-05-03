@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Vérifier si l'utilisateur existe
             if ($stmt->rowCount() == 1) {
                 // Rediriger l'utilisateur vers la page d'accueil après la connexion réussie
-                header("Location: accueil.php");
+                header("Location: HomeAdm.php");
                 exit();
             } else {
                 $loginErr = "Email or password incorrect";

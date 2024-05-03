@@ -8,20 +8,18 @@
     <link rel="stylesheet" href="../CSS/Etud.css">
 </head>
 <body>
-<?php include 'Header.php'; ?>
+<?php 
+    session_start();
+    include 'Header.php'; ?>
     <?php
-    $serveur = "127.0.0.1:3307"; // Nom du serveur MySQL
-    $utilisateur = "root"; // Nom d'utilisateur MySQL
-    $passwd = ""; // Mot de passe MySQL
-    $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
-
+   include 'connectionDb.php';
     // Connexion à la base de données avec PDO
     try {
         $connexion = new PDO("mysql:host=127.0.0.1:3307;dbname=gestion_anounce", $utilisateur, $passwd);
         $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Requête SQL pour récupérer les annonces avec les informations sur l'annonceur
-        $sql = "SELECT annonce.*, utilisateur.Nom AS Nom_utilisateur , utilisateur.Prénom AS Prenom FROM annonce INNER JOIN utilisateur ON utilisateur.ID_utilisateur = annonce.ID_utilisateur";
+        $sql = "SELECT annonce.*, utilisateur.Nom AS Nom_utilisateur , utilisateur.Prénom AS Prenom , etudiant.*  FROM annonce ,utilisateur ,etudiant WHERE utilisateur.ID_utilisateur = annonce.ID_utilisateur AND etudiant.ID_filière = annonce.ID_filière AND annonce.Status = 'validé';";
         $resultat = $connexion->query($sql);
 
         // Vérification si des annonces existent
@@ -38,6 +36,7 @@
                 $datePublication = $row["Date_publication"];
                 $desc = $row["Description"];
                 $contenu = $row["Contenu"];
+                
 
                 echo '<div class="anounce">';
                 echo '<div class="desc">';

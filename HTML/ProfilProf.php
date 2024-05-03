@@ -75,7 +75,10 @@
     </style>
 </head>
 <body>
-    <?php include 'HeaderProf.php'; ?>
+    <?php   
+    session_start();  
+    include 'HeaderProf.php'; 
+    ?>
     <section class="cont">
     <div class="container">
         <div class="profile-header">
@@ -85,8 +88,11 @@
             <img src="https://via.placeholder.com/150" alt="Profile Picture">
         </div>
         <div class="profile-details">
+
+        <?php $ID_utilisateur = $_GET['ID_utilisateur'];?>
+
             <h2>Nom Complet :</h2>
-            <p>John Doe</p>
+            <p> <?php echo $ID_utilisateur ?></p>
             <h2>Numéro d'enseignement  :</h2>
             <p>A123456789</p>
             <h2>Departement :</h2>

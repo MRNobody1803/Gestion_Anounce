@@ -51,7 +51,9 @@ i {
     </style>
 </head>
 <body>
-<?php include 'HeaderProf.php'; ?>
+<?php
+    include 'HeaderProf.php'; 
+?>
     <section class="navig">
     <div class="navbarr">
         <ul>

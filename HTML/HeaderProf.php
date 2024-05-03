@@ -156,7 +156,6 @@ nav div {
     </style>
 </head>
 <body>
-    <?php ?>
     <section class="home">
         <div class="navigation">
             <nav>
@@ -164,8 +163,11 @@ nav div {
                 <div> 
                     <a href="Espace.php" class="subBtn"><i class="fa-solid fa-house"></i>Home</a>
                     <a href="#home" class="subBtn"><i class="fa-solid fa-bullhorn"></i>Annonces</a>
-                    <a href="ProfilProf.php" class="subBtn"><i class="fa-solid fa-user"></i>Profil</a>
-                    <a href="Espace.php" class="subBtn"><i class="fa-solid fa-right-to-bracket"></i>Se deconnecter</a>
+                    <a href="ProfilProf.php" class="subBtn" name="profil"><i class="fa-solid fa-user"></i>Profil</a>
+
+                    <a href="login2.php" class="subBtn"><i class="fa-solid fa-right-to-bracket"></i>Se deconnecter</a>
+
+
                 </div>         
             </nav>
         </div>

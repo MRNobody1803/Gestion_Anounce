@@ -156,7 +156,36 @@ nav div {
     </style>
 </head>
 <body>
-    <?php ?>
+    <?php 
+    include 'connectionDb.php' ;
+    if (isset($_SESSION['ID_utilisateur'])) {
+
+        $UsernmaeEtud = $nameEtud = $lastnameEtud = $Cne_etudiant = $email = $fillier = "";
+        $sql = "SELECT * FROM utilisateur 
+                WHERE utilisateur.ID_utilisateur = :iduser ;";
+        $stmt = $connexion->prepare($sql);
+        $stmt->bindParam(":iduser", $_SESSION['ID_utilisateur']);
+        $stmt->execute();
+        if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $nameEtud = $row["Nom"];
+            $lastnameEtud = $row["Prénom"];
+            /*$Cne_etudiant = $row["Cne_etudiant"];
+            $email = $row["Email"];
+            $fillier = $row["Nom_filière"];*/
+            $UsernmaeProf = $nameEtud . " " . $lastnameEtud ;
+            
+            // Assigner les valeurs des variables de session
+           /* $_SESSION['cne'] = $Cne_etudiant;
+            $_SESSION['email'] = $email;
+            $_SESSION['filiere'] = $fillier;*/
+            $_SESSION["full_name"] = $UsernmaeProf;
+        } else {
+            // Rediriger vers la page de connexion si l'utilisateur n'est pas trouvé dans la base de données
+            header("Location: login3.php");
+            exit();
+        }
+    }
+    ?>
 <section class="home">
         <div class="navigation">
             <nav>
@@ -165,7 +194,7 @@ nav div {
                     <a href="#home" class="subBtn"><i class="fa-solid fa-bullhorn"></i>Anouncement</a>
                     <a href="Espace.php" class="subBtn"><i class="fa-solid fa-house"></i>Home</a>
                     <a href="ProfilEtud.php" class="subBtn"><i class="fa-solid fa-user"></i>Profil</a>
-                    <a href="Espace.php" class="subBtn"><i class="fa-solid fa-right-to-bracket"></i>Se deconnecter</a>
+                    <a href="login3.php" class="subBtn"><i class="fa-solid fa-right-to-bracket"></i>Se deconnecter</a>
                 </div>         
             </nav>
             

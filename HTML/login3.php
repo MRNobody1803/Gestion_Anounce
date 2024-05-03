@@ -37,9 +37,9 @@ $utilisateur = "root"; // Nom d'utilisateur MySQL
 $passwd = ""; // Mot de passe MySQL
 $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 
-
+    session_start();
 	$name = $lastname = $email = $password = "";
-	$nameErr = $lastnameErr = $emailErr = $passwordErr = "";
+	$nameErr = $lastnameErr = $emailErr = $passwordErr = $loginErr ="";
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		if (empty($_POST["name"])) {
 		  $nameErr = "* Name is required";
@@ -82,6 +82,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 			$data = htmlspecialchars($data);
 			return $data;
 	    }
+		
 		if(empty($emailErr) && empty($passwordErr) && empty($nameErr) && empty($lastnameErr)) {
 			try {
 				if (!empty($email) && !empty($password) && !empty($name) && !empty($lastname)) {
@@ -111,9 +112,10 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 					$stmt->execute();
 		
 					$connexion->commit();
-					echo "<script>alert('Inscription réussie !');</script>";
+					echo "<script>alert('Inscription réussie ! Veuillez Se Connecter');</script>";
+
 				} else {
-					echo "<script>alert('Il faut remplir tous les champs !');</script>";
+					// echo "<script>alert('Il faut remplir tous les champs !');</script>";
 				}
 			} catch (PDOException $e) {
 				// En cas d'erreur, annuler la transaction
@@ -141,7 +143,9 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 		
 					// Vérifier si l'utilisateur existe
 					if ($stmt->rowCount() == 1) {
-						// Rediriger l'utilisateur vers la page d'accueil après la connexion réussie
+						
+						$id_utilisateur = $stmt->fetchColumn();
+    					$_SESSION['ID_utilisateur'] = $id_utilisateur;
 						header("Location: Etudiant.php");
 						exit();
 					} else {
@@ -163,9 +167,8 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 				<div class="navbarr">
 					<ul>
 						<li><a href="Espace.php"><i class="fa-solid fa-house"></i>Home</a></li>
-						<li><a href="Espace.php"><i class="fa-solid fa-newspaper"></i></i>actualite</a></li>
-						<li><a href="login.php"><i class="fa-solid fa-bullhorn"></i>Annonces</a></li>
-						<li><a href="#home"><i class="fa-solid fa-address-book"></i>Contact</a></li>
+						<li><a href="login3.php"><i class="fa-solid fa-newspaper"></i></i>actualite</a></li>
+						<li><a href="#"><i class="fa-solid fa-address-book"></i>Contact</a></li>
 
 					</ul>
 				</div>    
@@ -196,7 +199,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 				        <div class="inputs credentials">	
 						    <span class="error"><?php echo $emailErr;?></span>
 					        <input type="email" name="email" placeholder="Email Educatif">
-							<span class="error"><?php echo $passwordErr;?></span>
+							<span class="error"><?php echo $loginErr."".$passwordErr;?></span>
 					        <input type="password" name="password" placeholder="Mot de Passe">
                             <!--input type="password" name="password" placeholder="Confirmer le Mot de Passe"-->                         
 				        </div>

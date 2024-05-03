@@ -7,7 +7,10 @@
 </head>
 <body>
     <?php
-    echo "<h1>ESPACE CHEF FILLIERE</h1>" ;
+    include 'HeaderP.php'
+    ?>
+    <?php
+    include 'Footer.php'
     ?>
 </body>
 </html>

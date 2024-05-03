@@ -8,10 +8,10 @@
 </head>
 <body>
 <?php
+session_start();
 include 'connectionDb.php';
 $titreErr = $descrErr = $contenuErr = $fileErr = "";
 $titre = $descr = $contenu = $file = $chemin = $type = $filier = "";
-session_start();
 
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['ID_utilisateur'])) {
@@ -20,7 +20,7 @@ if (!isset($_SESSION['ID_utilisateur'])) {
     exit();
 }
 else {
-    $UsernmaeProf = $nameProf = $lastnameProf ="";
+    $UsernmaeProf = $nameProf = $lastnameProf = "";
     $sql = "SELECT Nom, Prénom FROM utilisateur WHERE ID_utilisateur = :iduser ;";
     $stmt = $connexion->prepare($sql);
     $stmt->bindParam(":iduser", $_SESSION['ID_utilisateur']);
@@ -28,9 +28,12 @@ else {
     if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         $nameProf = $row["Nom"];
         $lastnameProf = $row["Prénom"];
+        $_SESSION['Nom'] = $nameProf ;
         $UsernmaeProf = $nameProf." ".$lastnameProf ;
     }
 }
+
+
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
 
@@ -71,8 +74,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             $chemin = "C:/uploads/" . $_FILES["announcementFile"]["name"];
             try {
                 $date_pub = date('Y-m-d H:i:s');
+                $Status = "En Attente";
                 // Insert announcement into database
-                $sql = "INSERT INTO annonce (ID_utilisateur, Type_annonce,Titre_annonce,Description, Contenu, Chemin, Date_publication) VALUES (:iduser,:type,:titre, :desc,:contenu, :chemin,:date);";
+                $sql = "INSERT INTO annonce (ID_utilisateur, Type_annonce,Titre_annonce,Description, Contenu,Status, Chemin, Date_publication) VALUES (:iduser,:type,:titre, :desc,:contenu,:status, :chemin,:date);";
                 $stmt = $connexion->prepare($sql);
                 $stmt->bindParam(":iduser",$_SESSION['ID_utilisateur']);
                 $stmt->bindParam(":titre", $titre);
@@ -81,7 +85,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
                 $stmt->bindParam(":contenu", $contenu);
                 $stmt->bindParam(":chemin", $chemin);
                 $stmt->bindParam(":date", $date_pub );
-                
+                $stmt->bindParam(":status", $Status );
 
                 $stmt->execute();
 
@@ -93,6 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
         } else {
             echo "<script>alert('Une erreur s\'est produite lors de la disposition de l\'annonce. Veuillez réessayer.');</script>";        }
     }
+    
 }
 
 function test_input($data) {
@@ -105,6 +110,7 @@ function test_input($data) {
 
 
 <?php include 'HeaderP.php'; ?>
+
 
 <h1>Bonjour <span class ="usernamae"> <?php echo "Prof. ".$UsernmaeProf ?> <span></h1>
 <main>

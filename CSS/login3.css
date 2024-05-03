@@ -1,12 +1,11 @@
 :root {
     --primaryColor : rgb(0, 158, 197) ;
     --secondColor : rgb(228, 148, 148) ;
-    --lightmode : #FBF3D5 ;
+    --lightmode : #ffffff ;
     --darkmode  : rgb(87, 59, 59) ;
     --bgColor : rgb(26, 21, 21) ;
     --bgColor1 :  rgba(197, 197, 197, 0.274) ;
     --bgColor2 : rgb(163, 159, 159) ;
-    --Gradiant :background: rgb(48,47,48);
     
   }
   @font-face {
