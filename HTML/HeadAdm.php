@@ -58,7 +58,8 @@ i {
     <div class="navbarr">
         <ul>
             <li><a href="tableau_affichage.php"><i class="fa-solid fa-newspaper"></i></i>Gérer les utilisateurs</a></li>
-            <li><a href="A_valider.php"><i class="fa-solid fa-bullhorn"></i>Consulter les Annonces</a></li>
+            <li><a href="A_valider.php"><i class="fa-solid fa-bullhorn"></i>Consulter Toutes les Annonces</a></li>
+            <li><a href="HomeAdm.php"><i class="fa-solid fa-bullhorn"></i>Consulter les Annonces En Attente</a></li>
             <!--li><a href="#home"><i class="fa-solid fa-address-book"></i></a></li-->
         </ul>
     </div>

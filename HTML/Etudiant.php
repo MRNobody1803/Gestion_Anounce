@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professeur</title>
+    <title>Etudiant : Profil</title>
     <link rel="icon" href="/Icons/login_icon_184224.ico">
     <link rel="stylesheet" href="../CSS/Etud.css">
 </head>
@@ -13,6 +13,22 @@
     include 'Header.php'; ?>
     <?php
    include 'connectionDb.php';
+   if (!isset($_SESSION['ID_utilisateur'])) {
+    exit();
+}
+else {
+    $UsernmaeEtud = $nameEtud = $lastnameEtud = "";
+    $sql = "SELECT Nom, Prénom FROM utilisateur WHERE ID_utilisateur = :iduser ;";
+    $stmt = $connexion->prepare($sql);
+    $stmt->bindParam(":iduser", $_SESSION['ID_utilisateur']);
+    $stmt->execute();
+    if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        $nameEtud = $row["Nom"];
+        $lastnameEtud = $row["Prénom"];
+        $_SESSION['Nom'] = $nameEtud ;
+        $UsernmaeEtud = $nameEtud." ".$lastnameEtud ;
+    }
+}
     // Connexion à la base de données avec PDO
     try {
         $connexion = new PDO("mysql:host=127.0.0.1:3307;dbname=gestion_anounce", $utilisateur, $passwd);
@@ -25,7 +41,9 @@
         // Vérification si des annonces existent
         if ($resultat->rowCount() > 0) {
             // Affichage de chaque annonce
+            
             echo '<section class="container">';
+            echo "<h2> BienVenu , $UsernmaeEtud</h2>";
             echo '<h1>Les Annonces</h1>';
             echo '<div class="annonces">';
             while ($row = $resultat->fetch(PDO::FETCH_ASSOC)) {

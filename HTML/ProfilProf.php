@@ -50,7 +50,7 @@
         }
         .profile-details p {
             color: #666;
-            padding : 8px ;
+            padding : 10px ;
         }
         .button-container {
             text-align: center;
@@ -79,6 +79,46 @@
     session_start();  
     include 'HeaderProf.php'; 
     ?>
+
+    <?php  
+    // Connexion à la base de données
+    $conn = mysqli_connect('127.0.0.1:3307', 'root', '', 'gestion_anounce');
+        if (!$conn) {
+        die("Erreur de connexion à la base de données : " . mysqli_connect_error());
+    }
+
+    // session_start();
+    //recuperer le id du prof
+    $id_utilisateur = $_SESSION['ID_utilisateur'];
+
+    // Requête pour récupérer les utilisateurs
+    $sql = "SELECT utilisateur.*, enseignant.ID_filière, filière.Nom_filière,enseignant.ID_enseignant
+    FROM utilisateur
+    INNER JOIN enseignant ON utilisateur.ID_utilisateur = enseignant.ID_utilisateur
+    INNER JOIN filière ON enseignant.ID_filière = filière.ID_filière
+    WHERE utilisateur.ID_utilisateur = $id_utilisateur;";
+    $result = mysqli_query($conn, $sql);
+
+    // Affichage des utilisateurs dans le tableau
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+    $prenom =  $row["Nom"];
+    $nom =  $row["Prénom"] ;
+    $type_utilisateur =  $row["type_utilisateur"] ;
+    $Email =  $row["Email"] ;
+    $filière = $row["Nom_filière"];
+    $ID_enseignant = $row["ID_enseignant"];
+
+    }
+} else {
+    echo "<tr><td colspan='5'>Aucun utilisateur trouvé.</td></tr>";
+}
+
+// Fermeture de la connexion
+mysqli_close($conn);
+?>
+
+
     <section class="cont">
     <div class="container">
         <div class="profile-header">
@@ -89,23 +129,18 @@
         </div>
         <div class="profile-details">
 
-        <?php $ID_utilisateur = $_GET['ID_utilisateur'];?>
-
-            <h2>Nom Complet :</h2>
-            <p> <?php echo $ID_utilisateur ?></p>
-            <h2>Numéro d'enseignement  :</h2>
-            <p>A123456789</p>
+            <h2>ID_enseignant :</h2>
+            <p><?php echo $ID_enseignant ?></p>
+            <h2>Nom :</h2>
+            <p> <?php echo $prenom ?></p>
+            <h2>Prénom :</h 2>
+            <p> <?php echo $nom ?></p>
             <h2>Departement :</h2>
-            <p>Génie Informatique </p>
+            <p><?php echo $filière ?> </p>
             <h2>Email :</h2>
-            <p>john.doe@example.com</p>
-            <h2>Numéro de Téléphone :</h2>
-            <p>+1234567890</p>
-           
-        </div>
-        <div class="button-container">
-            <button class="edit-profile-button">Modifier le Profil</button>
-        </div>
+            <p><?php echo $Email ?></p>
+            
+            
     </div>
     </section>
     

@@ -7,6 +7,13 @@
     font-size: 16px ;
     color: black ;
 }
+.container  h2 {
+    padding : 20px ;
+    margin : 20px 40px ;
+    font-size: 30px;
+    font-family: serif , Arial, Helvetica, sans-serif ;
+    color: rgb(59, 59, 59);
+}
 
 .container {
     font-family: serif;

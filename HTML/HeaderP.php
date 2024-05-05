@@ -58,7 +58,7 @@ i {
     <div class="navbarr">
         <ul>
             <li><a href="Prof.php"><i class="fa-solid fa-newspaper"></i></i>Déposer une annonce</a></li>
-            <li><a href="#home"><i class="fa-solid fa-bullhorn"></i>Consulter les Annonces</a></li>
+            <li><a href="ProfAnnonce.php"><i class="fa-solid fa-bullhorn"></i>Consulter les Annonces</a></li>
             <li><a href="#home"><i class="fa-solid fa-address-book"></i>Contacter l'Administration</a></li>
         </ul>
     </div>

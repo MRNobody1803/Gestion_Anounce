@@ -201,7 +201,7 @@
     transform: translate3d(120%, -3em, 0);
   }
   #login:checked ~ .container .form .inputs {
-    transform: translate3d(0, -95%, 0);
+    transform: translate3d(0, -100%, 0);
   }
   #login:checked ~ .container .form .superBtn .content {
     transform: translatey(-38px);

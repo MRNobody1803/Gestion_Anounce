@@ -162,8 +162,7 @@ nav div {
                 <h1>Academia <span>CONNECT</span></h1>
                 <div> 
                     <a href="HomeAdm.php" class="subBtn"><i class="fa-solid fa-house"></i>Home</a>
-                    <a href="ProfilProf.php" class="subBtn" name="profil"><i class="fa-solid fa-user"></i>Profil</a>
-                    <a href="Espace.php" class="subBtn"><i class="fa-solid fa-right-to-bracket"></i>Se deconnecter</a>
+                    <a href="login1.php" class="subBtn"><i class="fa-solid fa-right-to-bracket"></i>Se deconnecter</a>
                 </div>         
             </nav>
         </div>

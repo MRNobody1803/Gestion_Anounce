@@ -161,10 +161,8 @@ nav div {
             <nav>
                 <h1>Academia <span>CONNECT</span></h1>
                 <div> 
-                    <a href="Espace.php" class="subBtn"><i class="fa-solid fa-house"></i>Home</a>
-                    <a href="#home" class="subBtn"><i class="fa-solid fa-bullhorn"></i>Annonces</a>
+                    <a href="ProfAnnonce.php" class="subBtn"><i class="fa-solid fa-house"></i>Home</a>
                     <a href="ProfilProf.php" class="subBtn" name="profil"><i class="fa-solid fa-user"></i>Profil</a>
-
                     <a href="login2.php" class="subBtn"><i class="fa-solid fa-right-to-bracket"></i>Se deconnecter</a>
 
 

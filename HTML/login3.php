@@ -112,7 +112,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 					$stmt->execute();
 		
 					$connexion->commit();
-					echo "<script>alert('Inscription réussie ! Veuillez Se Connecter');</script>";
+					echo "<script>alert('Inscription réussie ! Veuillez Attendre La validation de l'Administration !');</script>";
 
 				} else {
 					// echo "<script>alert('Il faut remplir tous les champs !');</script>";

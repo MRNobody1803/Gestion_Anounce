@@ -23,7 +23,7 @@ if (mysqli_num_rows($result) > 0) {
         echo "<td>" . $row["ID_filière"] . "</td>";
 
         echo "<td>" . $row["Date_publication"] . "</td>";
-        echo "<td><a href='update_status.php?ID_annonce=" . $row["ID_annonce"] . "&new_status=validé'><button class='btn' title='button'>Valider</button></a></td>";
+        echo "<td>Validé</td>";
         echo "<td><a href='modifier__annonce.php?ID_annonce=" . $row["ID_annonce"] . "&Contenu=" . $row["Contenu"] . "'><button class='btn' title='button'>Modifier</button></td>";
         echo "<td><a href='supprimer_annonce.php?action=supprimer&ID_annonce=" . $row["ID_annonce"] . "' onclick='return confirm(\"Voulez-vous vraiment supprimer cette annonce ?\")'><button class='btn' title='button'>Supprimer</button></td>";
         echo "</tr>";

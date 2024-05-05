@@ -84,13 +84,13 @@
                         </div>
             
                         <input class="slide-input" id="slide-dot-1" type="radio" name="slides" checked>
-                        <img class="slide-img" src="../Image/pexels-felix-kiss-18684136.jpg">
+                        <img class="slide-img" src="../Image/img1.jpg">
             
                         <input class="slide-input" id="slide-dot-2" type="radio" name="slides">
-                        <img class="slide-img" src="../Image/pexels-balamurugan-anbazhagan-763097.jpg">
+                        <img class="slide-img" src="../Image/img3.jpg">
             
                         <input class="slide-input" id="slide-dot-3" type="radio" name="slides">
-                        <img class="slide-img" src="../Image/result-3236285_1920.jpg">
+                        <img class="slide-img" src="../Image/img2.jpg">
             
                     </div>
                 </div>

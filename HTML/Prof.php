@@ -112,7 +112,7 @@ function test_input($data) {
 <?php include 'HeaderP.php'; ?>
 
 
-<h1>Bonjour <span class ="usernamae"> <?php echo "Prof. ".$UsernmaeProf ?> <span></h1>
+<h1>Bienvenu <span class ="usernamae"> <?php echo "Prof. ".$UsernmaeProf ?> <span></h1>
 <main>
     <h1>Déposer une Annonce</h1>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" enctype="multipart/form-data">

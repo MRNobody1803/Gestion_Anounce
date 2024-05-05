@@ -50,7 +50,7 @@
         }
         .profile-details p {
             color: #666;
-            padding : 8px ;
+            padding : 10px ;
         }
         .button-container {
             text-align: center;
@@ -75,17 +75,50 @@
     </style>
 </head>
 <body>
-    <?php /*include 'Header.php'; */?>
-    <?php 
-    include 'connectionDb.php' ;
-    if (isset($_SESSION['full_name'])) {
-        } else {
-            header("Location: Etudiant.php");
-            exit();
-        }
-    /*$sql = "SELECT * FROM utilisateur WHERE ";
-        $resultat = $connexion->query($sql);*/
+    <?php   
+    session_start();  
+    include 'Header.php'; 
     ?>
+
+    <?php  
+    // Connexion à la base de données
+    $conn = mysqli_connect('127.0.0.1:3307', 'root', '', 'gestion_anounce');
+        if (!$conn) {
+        die("Erreur de connexion à la base de données : " . mysqli_connect_error());
+    }
+
+    // session_start();
+    //recuperer le id du prof
+    $id_utilisateur = $_SESSION['ID_utilisateur'];
+
+    // Requête pour récupérer les utilisateurs
+    $sql = "SELECT utilisateur.*, etudiant.ID_filière, filière.Nom_filière,etudiant.ID_etudiant
+    FROM utilisateur
+    INNER JOIN etudiant ON utilisateur.ID_utilisateur = etudiant.ID_utilisateur
+    INNER JOIN filière ON etudiant.ID_filière = filière.ID_filière
+    WHERE utilisateur.ID_utilisateur = $id_utilisateur;";
+    $result = mysqli_query($conn, $sql);
+
+    // Affichage des utilisateurs dans le tableau
+if (mysqli_num_rows($result) > 0) {
+    while ($row = mysqli_fetch_assoc($result)) {
+    $prenom =  $row["Nom"];
+    $nom =  $row["Prénom"] ;
+    $type_utilisateur =  $row["type_utilisateur"] ;
+    $Email =  $row["Email"] ;
+    $filière = $row["Nom_filière"];
+    $ID_etudiant = $row["ID_etudiant"];
+
+    }
+} else {
+    echo "<tr><td colspan='5'>Aucun utilisateur trouvé.</td></tr>";
+}
+
+// Fermeture de la connexion
+mysqli_close($conn);
+?>
+
+
     <section class="cont">
     <div class="container">
         <div class="profile-header">
@@ -95,19 +128,19 @@
             <img src="https://via.placeholder.com/150" alt="Profile Picture">
         </div>
         <div class="profile-details">
-            <h2>Nom Complet :</h2>
-            <p><?php echo isset($_SESSION['full_name'])  ?></p>
-            <h2>Numéro d'Etudiant :</h2>
-            <p>123456789</p>
-            <h2>Filière :</h2>
-            <p><?php echo $_SESSION['filiere'] ?></p>
+
+            <h2>ID_etudiant :</h2>
+            <p><?php echo $ID_etudiant ?></p>
+            <h2>Nom :</h2>
+            <p> <?php echo $prenom ?></p>
+            <h2>Prénom :</h 2>
+            <p> <?php echo $nom ?></p>
+            <h2>Departement :</h2>
+            <p><?php echo $filière ?> </p>
             <h2>Email :</h2>
-            <p><?php echo $_SESSION['email'] ?></p>
-            <h2>Numéro de Téléphone :</h2>
-            <p>+1234567890</p>
-            <h2>CNE Etudiant :</h2>
-            <p><?php echo $_SESSION['cne'] ?></p>
-        </div>
+            <p><?php echo $Email ?></p>
+            
+            
     </div>
     </section>
     
