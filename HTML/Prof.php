@@ -96,9 +96,57 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
             }
         } else {
             echo "<script>alert('Une erreur s\'est produite lors de la disposition de l\'annonce. Veuillez réessayer.');</script>";        }
+    } else {
+        try {
+            $date_pub = date('Y-m-d H:i:s');
+            $Status = "En Attente";
+            // Insert announcement into database
+            $sql = "INSERT INTO annonce (ID_utilisateur,ID_filière, Type_annonce,Titre_annonce,Description, Contenu,Status, Date_publication) VALUES (:iduser,:Id_fil,:type,:titre, :desc,:contenu,:status,:date);";
+            $stmt = $connexion->prepare($sql);
+            $stmt->bindParam(":iduser",$_SESSION['ID_utilisateur']);
+            $stmt->bindParam(":titre", $titre);
+            $stmt->bindParam(":type", $type);
+            $stmt->bindParam(":desc", $descr);
+            $stmt->bindParam(":contenu", $contenu);
+            $stmt->bindParam(":date", $date_pub );
+            $stmt->bindParam(":status", $Status );
+
+            if ($_SESSION['filiere'] == $_SESSION['Ginf']) {
+                $id_fil = 30 ;
+            }
+            else if ($_SESSION['filiere'] == $_SESSION['Gindus']) {
+                $id_fil = 31 ;
+            }
+            else if ($_SESSION['filiere'] == $_SESSION['Gelec']) {
+                $id_fil = 32 ;
+            }
+            else if ($_SESSION['filiere'] == $_SESSION['Gmeca']) {
+                $id_fil = 33 ;
+            }
+            else if ($_SESSION['filiere'] == $_SESSION['Gfid']) {
+                $id_fil = 34 ;
+            }
+            else if ($_SESSION['filiere'] == $_SESSION['Gcivil']) {
+                $id_fil = 35 ;
+            }
+            else if ($_SESSION['filiere'] == $_SESSION['Gee']) {
+                $id_fil = 36 ;
+            }
+            else {
+                echo "filière Non definie" ;
+            }
+
+            $stmt->bindParam(":Id_fil",  $id_fil );
+            $stmt->execute();
+    
+            echo "<script>alert('La disposition de l\'annonce a été effectuée avec succès.');</script>";
+    
+        } catch (PDOException $e) {
+            echo "Error lors de l'insertion !!". $e->getMessage();
+        }
     }
     
-}
+} 
 
 function test_input($data) {
     $data = trim($data);
@@ -134,13 +182,13 @@ function test_input($data) {
         <div>
             <label for="filiere">Filière:</label>
             <select name="filiere" id="filiere">
-                <option value="Ginfo">G.info</option>
-                <option value="GE">G.electrique</option>
-                <option value="Gindus">g.indus</option>
-                <option value="GEE">GEE</option>
-                <option value="FID">FID</option>
-                <option value="BTP">G.civil</option>
-                <option value="GM">G.mecanique</option>
+                <option value="Ginfo" name="Ginf">G.info</option>
+                <option value="GE" name="Gelec">G.electrique</option>
+                <option value="Gindus" name="Gindus">g.indus</option>
+                <option value="GEE" name="Gee">GEE</option>
+                <option value="FID" name="Gfid">FID</option>
+                <option value="BTP" name="Gcivil">G.civil</option>
+                <option value="GM" name="Gmeca">G.mecanique</option>
             </select>
         </div>
 

@@ -1,17 +1,15 @@
 <?php
-// Connexion à la base de données
 $conn = mysqli_connect('127.0.0.1:3307', 'root', '', 'gestion_anounce');
 if (!$conn) {
     die("Erreur de connexion à la base de données : " . mysqli_connect_error());
 }
 
-// Requête pour récupérer les Contenu
 $sql = "SELECT annonce.*, filière.Nom_filière AS Nom_filière 
         FROM annonce 
-        INNER JOIN filière ON filière.ID_filière = annonce.ID_filière";
+        INNER JOIN filière ON filière.ID_filière = annonce.ID_filière
+        AND annonce.Status = 'validé' ;";
 $result = mysqli_query($conn, $sql);
 
-// Affichage des annonces dans le tableau avec le nom de la filière
 if (mysqli_num_rows($result) > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
         echo "<tr>";

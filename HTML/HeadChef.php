@@ -52,14 +52,14 @@ i {
 </head>
 <body>
 <?php
-    include 'HeaderAdm.php'; 
+    include 'HeaderChef.php'; 
 ?>
     <section class="navig">
     <div class="navbarr">
         <ul>
-            <li><a href="tableau_affichage.php"><i class="fa-solid fa-newspaper"></i></i>Gérer les utilisateurs</a></li>
-            <li><a href="A_valider.php"><i class="fa-solid fa-bullhorn"></i>Consulter Toutes les Annonces Validés</a></li>
-            <li><a href="HomeAdm.php"><i class="fa-solid fa-bullhorn"></i>Consulter les Annonces En Attente</a></li>
+            <li><a href="tableau_etudiant.php"><i class="fa-solid fa-newspaper"></i></i>Gérer les étudiants</a></li>
+            <li><a href="annoncettChef.php"><i class="fa-solid fa-bullhorn"></i>Consulter Toutes les Annonces</a></li>
+            <li><a href="HomeChef.php"><i class="fa-solid fa-bullhorn"></i>Consulter les Annonces En Attente</a></li>
             <!--li><a href="#home"><i class="fa-solid fa-address-book"></i></a></li-->
         </ul>
     </div>

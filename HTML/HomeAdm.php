@@ -245,7 +245,6 @@ button[type="submit"]:hover {
                           <th>Filière</th>
                           <th>Contenu</th>
                           <th>Déposée par</th>
-                          <th>Chef de filière</th>
                           <th>Date</th>
                           <th>Validation</th>
                           <th>Modifier</th>

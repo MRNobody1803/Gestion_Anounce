@@ -73,7 +73,12 @@
             <div class="contain">
                 <div class="comments">
                     <h2>Commentaire sur L actualites</h2>
+                    <p><strong> Cher Professeur Okhouya, <br>
 
+                     Félicitations pour l'obtention de votre doctorat ! C'est une réussite exceptionnelle qui témoigne de votre dévouement et de votre excellence académique. Votre passion pour la recherche et votre engagement envers l'apprentissage inspirent profondément vos étudiants. Nous sommes privilégiés de vous avoir comme guide et mentor dans notre parcours académique. <br>
+                      Votre réussite est une source d'inspiration pour nous tous. <br>
+
+                     Félicitations encore une fois !</strong></p>
                 </div>
                 <div class="slider">
                     <div class="slider-container">

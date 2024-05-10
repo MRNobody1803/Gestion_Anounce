@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content ="Anounce Etablissement , Ensa AGADIR , Gestion Anounce Ensa AGadir , Platforme des anounces " >  
-    <title>Administrateur</title>
+    <title>Chef de Fillière</title>
     <link rel="icon" href="/Icons/login_icon_184224.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -232,9 +232,13 @@ button[type="submit"]:hover {
     </style>
 </head>
 <body>
-<?php include 'HeadAdm.php' ?>
+<?php 
+include 'HeadChef.php' ;
+include 'connectionDb.php';
+
+?>
     <main>
-          <h1>Toutes Les Annonces Validés</h1>
+          <h1>Les annonces en Attente</h1>
           <section class="table_body">
             <div class="container">
               <table>
@@ -245,15 +249,12 @@ button[type="submit"]:hover {
                           <th>Filière</th>
                           <th>Contenu</th>
                           <th>Déposée par</th>
-                          <th>Chef de filière</th>
-                          <th>Date</th>
+                          <th>Date_publication</th>
                           <th>Validation</th>
-                          <th>Modifier</th>
-                          <th>Supprimer</th>
                       </tr>
                   </thead>
                   <tbody>
-                    <?php include 'annonces.php'; ?>
+                    <?php include 'annonceChef.php'; ?>
                   </tbody>
               </table>
             </div>

@@ -333,7 +333,13 @@ border-radius: 20px 20px 0 0 ;
     z-index: 100;
     transition: left 0.65s ease-out;
 }
-
+.comments p {
+    text-align: start ;
+    padding: 8px ;
+    font-family: serif , Arial, Helvetica, sans-serif ;
+    font-size: 16px ;
+    color: rgb(184, 23, 23);
+}
 
 /*----------------------------------------------------------------------------
 -------------------------------         

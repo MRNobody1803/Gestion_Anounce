@@ -50,10 +50,10 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 			try {
 				// Connexion à la base de données avec PDO
 				$connexion = new PDO("mysql:host=$serveur;dbname=$DataBase", $utilisateur, $passwd);
-		
+			
 				// Configuration des options de PDO pour afficher les erreurs
 				$connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
+			
 				// Requête pour vérifier l'existence de l'utilisateur dans la base de données
 				$stmt = $connexion->prepare("SELECT utilisateur.ID_utilisateur FROM utilisateur,chef_filière WHERE utilisateur.ID_utilisateur = chef_filière.ID_utilisateur AND Email=:email AND Mot_de_passe=:password AND Nom=:nom AND Prénom=:prenom" );
 				$stmt->bindParam(':email', $email);
@@ -61,11 +61,15 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 				$stmt->bindParam(':nom', $name); // Correction ici
 				$stmt->bindParam(':prenom', $lastname); // Correction ici
 				$stmt->execute();
-				/*$_SESSION['Nom'] = $row[""];*/
+			
 				// Vérifier si l'utilisateur existe
 				if ($stmt->rowCount() == 1) {
+					// Récupérer l'ID utilisateur
+					$id_utilisateur = $stmt->fetchColumn();
+					$_SESSION['ID_utilisateur'] = $id_utilisateur;
+			
 					// Rediriger l'utilisateur vers la page d'accueil après la connexion réussie
-					header("Location: Chef.php");
+					header("Location: HomeChef.php");
 					exit();
 				} else {
 					$loginErr = "Email or password incorrect";
@@ -74,8 +78,7 @@ $DataBase = 'gestion_anounce'; // Nom de la base de données MySQL
 				// Affichage d'un message d'erreur en cas d'échec de la connexion
 				$loginErr = "Error connecting to the database: " . $e->getMessage();
 			}
-		}
-		
+		}			
 			else if(empty($emailErr) && empty($passwordErr) && !empty($nameErr) && !empty($lastnameErr) ){
 				try {
 					// Connexion à la base de données avec PDO

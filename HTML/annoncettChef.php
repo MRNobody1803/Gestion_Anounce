@@ -232,9 +232,10 @@ button[type="submit"]:hover {
     </style>
 </head>
 <body>
-<?php include 'HeadAdm.php' ?>
+<?php 
+include 'HeadChef.php' ?>
     <main>
-          <h1>Toutes Les Annonces Validés</h1>
+          <h1>Toutes Les Annonces</h1>
           <section class="table_body">
             <div class="container">
               <table>
@@ -245,15 +246,12 @@ button[type="submit"]:hover {
                           <th>Filière</th>
                           <th>Contenu</th>
                           <th>Déposée par</th>
-                          <th>Chef de filière</th>
                           <th>Date</th>
                           <th>Validation</th>
-                          <th>Modifier</th>
-                          <th>Supprimer</th>
                       </tr>
                   </thead>
                   <tbody>
-                    <?php include 'annonces.php'; ?>
+                    <?php include 'annoncesChef.php'; ?>
                   </tbody>
               </table>
             </div>

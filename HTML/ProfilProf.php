@@ -9,7 +9,6 @@
        
         .container {
             max-width: 800px ;
-            max-height : 85vh ;
             margin: 20px 80px ;
             padding: 20px;
             background-color: #fff;
@@ -48,9 +47,10 @@
             padding: 5px ;
             font-size : 22px ;
         }
-        .profile-details p {
+        .profile-details h3 {
             color: #666;
             padding : 10px ;
+            text-align : center ;
         }
         .button-container {
             text-align: center;
@@ -130,15 +130,15 @@ mysqli_close($conn);
         <div class="profile-details">
 
             <h2>ID_enseignant :</h2>
-            <p><?php echo $ID_enseignant ?></p>
+            <h3><?php echo $ID_enseignant ?></h3>
             <h2>Nom :</h2>
-            <p> <?php echo $prenom ?></p>
+            <h3> <?php echo $prenom ?></h3>
             <h2>Prénom :</h 2>
-            <p> <?php echo $nom ?></p>
+            <h3> <?php echo $nom ?></h3>
             <h2>Departement :</h2>
-            <p><?php echo $filière ?> </p>
+            <h3><?php echo $filière ?> </h3>
             <h2>Email :</h2>
-            <p><?php echo $Email ?></p>
+            <h3><?php echo $Email ?></h3>
             
             
     </div>

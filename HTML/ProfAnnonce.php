@@ -40,6 +40,7 @@ try{
             $datePublication = $row["Date_publication"];
             $desc = $row["Description"];
             $contenu = $row["Contenu"];
+            $Status = $row["Status"];
             
 
             echo '<div class="anounce">';
@@ -49,6 +50,7 @@ try{
             echo "<p><li>Par :  Prof. $Anoncer $prenom </></p>";
             echo "<p><li>Description : $desc </p>";
             echo "<p><li>Date de publication : $datePublication </li></p>" ;
+            echo "<p><li>Status : $Status </li></p>" ;
             echo '</div>';
             echo '<div class="contenu">';
             echo "<p> $contenu </p>";
